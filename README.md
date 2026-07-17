@@ -116,9 +116,11 @@ A complete enterprise environment bringing together every technology learned thr
 
 ---
 
-# Repositories
+# Portfolio Areas
 
-| Repository | Purpose |
+This project is a monorepo: each technology is stored as a normal directory and versioned together in this repository.
+
+| Directory | Purpose |
 |------------|---------|
 | infrastructure | Windows Server, Active Directory, DNS, DHCP, PKI, Group Policy |
 | powershell | PowerShell scripts and automation |
