@@ -19,3 +19,4 @@ This folder contains exercises edited by Sat and reviewed with Codex.
 - `04-conditions.ps1` - Decisions with if, else and comparison operators
 - `05-multiple-conditions.ps1` - Three-way decisions with if, elseif and else
 - `06-arrays-and-loops.ps1` - Collections with arrays and foreach loops
+- `practice-workbook.ps1` - Exercises 7-10 in one ongoing file (hashtables, objects, pipelines and functions)

@@ -14,7 +14,7 @@
 # TODO 1:
 # Create an array named $servers containing these three server names:
 # WEB01, APP01 and DB01
-$servers = @("")
+$servers = @("WEB01", "APP01", "DB01")
 
 # A foreach loop processes each item in an array.
 # On each pass, the current item is stored in the singular variable.
@@ -35,10 +35,10 @@ $servers = @("")
 # TODO 3:
 # Replace the TODO inside Write-Host with the current server variable.
 
-foreach (CURRENT_SERVER in SERVER_LIST) {
-    Write-Host "Checking TODO"
+foreach ($server in $servers) {
+    Write-Host "Checking $server"
 }
 
 # TODO 4:
 # Use the array's Count property in place of TODO.
-Write-Host "Checked TODO servers."
+Write-Host "Checked $($servers.Count) servers."

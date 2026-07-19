@@ -123,6 +123,7 @@ This project is a monorepo: each technology is stored as a normal directory and 
 | Directory | Purpose |
 |------------|---------|
 | infrastructure | Windows Server, Active Directory, DNS, DHCP, PKI, Group Policy |
+| azure | Azure infrastructure practice, projects and documentation |
 | powershell | PowerShell scripts and automation |
 | terraform | Infrastructure as Code projects |
 | azure-cli | Azure CLI examples and automation |

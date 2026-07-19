@@ -1,0 +1,18 @@
+# Terraform working directories and state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Local plans and variable values
+*.tfplan
+*.tfvars
+*.tfvars.json
+
+# Keep the dependency lock file in version control.
+!.terraform.lock.hcl
+
+# Lab-generated files
+labs/01-local-file/hello.txt
+practice/practice.txt
