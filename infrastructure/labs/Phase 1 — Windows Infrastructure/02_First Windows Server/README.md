@@ -177,7 +177,7 @@ Windows Server 2025 Standard Evaluation (Desktop Experience)
 
 I'm still learning Windows Server administration, so having the GUI available makes more sense for this stage than jumping straight into Server Core.
 
-[View screenshot: Windows Server 2025 edition selection](screenshots/IMG_7178.jpg)
+![Windows Server 2025 edition selection](screenshots/IMG_7178.jpg)
 
 ### Choosing the disk
 
@@ -189,7 +189,7 @@ Disk 0 Unallocated Space    3.6 TB
 
 It could also see the `WIN2025` USB as Disk 1.
 
-[View screenshot: Windows Server installation disk selection](screenshots/IMG_7179.jpg)
+![Windows Server installation disk selection](screenshots/IMG_7179.jpg)
 
 I selected Disk 0 and let Windows create the partitions it needed.
 
@@ -203,11 +203,11 @@ Server Manager opened after the first login.
 
 At this point the machine was basically a fresh standalone Windows Server.
 
-[View screenshot: Server Manager after the first login](screenshots/IMG_7180.jpg)
+![Server Manager after the first login](screenshots/IMG_7180.jpg)
 
 Windows also immediately started suggesting Windows Admin Center and Azure Arc.
 
-[View screenshot: Windows Admin Center and Azure Arc prompt](screenshots/IMG_7181.jpg)
+![Windows Admin Center and Azure Arc prompt](screenshots/IMG_7181.jpg)
 
 I left Azure Arc alone.
 
@@ -234,7 +234,7 @@ WORKGROUP
 
 Remote Desktop was disabled and Windows Defender Firewall was running.
 
-[View screenshot: Initial Local Server configuration](screenshots/IMG_7182.jpg)
+![Initial Local Server configuration](screenshots/IMG_7182.jpg)
 
 I wanted to see this before changing everything because otherwise I'd have no real idea what Windows Server had configured for me and what I'd configured myself.
 
@@ -252,7 +252,7 @@ Embedded NIC 2
 Ethernet
 ```
 
-[View screenshot: Windows Server network interfaces](screenshots/IMG_7184.jpg)
+![Windows Server network interfaces](screenshots/IMG_7184.jpg)
 
 The embedded NICs showed their network cables as unplugged.
 
@@ -280,11 +280,11 @@ ipconfig /all
 
 to see what Windows had actually picked up.
 
-[View screenshot: Initial ipconfig investigation](screenshots/IMG_7185.jpg)
+![Initial ipconfig investigation](screenshots/IMG_7185.jpg)
 
 DHCP gave Embedded NIC 1 an address on my LAN.
 
-[View screenshot: Embedded NIC 1 network configuration](screenshots/IMG_7189.jpg)
+![Embedded NIC 1 network configuration](screenshots/IMG_7189.jpg)
 
 My network was:
 
@@ -330,7 +330,7 @@ If `8.8.8.8` was replying, the server clearly had more than just a working cable
 
 So I stopped treating it as a general connectivity problem and started looking at DNS.
 
-[View screenshot: IPv4 and DNS configuration](screenshots/IMG_7191.jpg)
+![IPv4 and DNS configuration](screenshots/IMG_7191.jpg)
 
 I used `8.8.8.8` partly because it's a known external address. If I could reach it without relying on a hostname, I could test Internet connectivity separately from name resolution.
 
@@ -360,7 +360,7 @@ Received = 4
 Lost = 0
 ```
 
-[View screenshot: Successful default gateway test](screenshots/IMG_7194.jpg)
+![Successful default gateway test](screenshots/IMG_7194.jpg)
 
 So communication on the local network was fine.
 
@@ -388,7 +388,7 @@ nslookup microsoft.com
 
 This resolved successfully.
 
-[View screenshot: Internet and DNS tests working](screenshots/IMG_7196.jpg)
+![Internet and DNS tests working](screenshots/IMG_7196.jpg)
 
 This was probably the point where the troubleshooting approach started to click for me.
 
@@ -428,7 +428,7 @@ Result:
 SRV01
 ```
 
-[View screenshot: SRV01 hostname verification](screenshots/IMG_7198.jpg)
+![SRV01 hostname verification](screenshots/IMG_7198.jpg)
 
 ---
 
@@ -478,7 +478,7 @@ Then, from my Mac, I connected to:
 smb://192.168.1.250/LabScreenshots
 ```
 
-[View screenshot: LabScreenshots SMB share opened from macOS](screenshots/Screenshot%202026-07-26%20at%2021.00.49.png)
+![LabScreenshots SMB share opened from macOS](screenshots/Screenshot%202026-07-26%20at%2021.00.49.png)
 
 And there it was in Finder.
 
