@@ -20,3 +20,4 @@ This folder contains exercises edited by Sat and reviewed with Codex.
 - `05-multiple-conditions.ps1` - Three-way decisions with if, elseif and else
 - `06-arrays-and-loops.ps1` - Collections with arrays and foreach loops
 - `practice-workbook.ps1` - Exercises 7-10 in one ongoing file (hashtables, objects, pipelines and functions)
+- `syntax-gym.ps1` - Repeatable syntax and behaviour drills with PASS/RETRY checks
