@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover PowerShell commands and inspect structured objects before changing Windows Server.">
+  <title>0001 · Discover before you change · Phase 1 Windows Infrastructure</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/course.js" defer></script>
+  <script src="../assets/code-lab.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">Phase 1 — Windows Infrastructure</a>
+      <p class="eyebrow">Lesson 0001 · Build 2</p>
+      <h1>Discover before you change</h1>
+      <p class="lede">Use PowerShell to find a command, read its examples, inspect the objects it returns, and select the properties that matter.</p>
+    </div>
+  </header>
+
+  <main class="shell lesson-grid">
+    <aside class="lesson-meta" aria-label="Lesson information">
+      <h2>In this lesson</h2>
+      <p><strong>Time:</strong> 15–25 minutes</p>
+      <p><strong>Needs:</strong> PowerShell 7 on macOS or Windows</p>
+      <p><strong>Safety:</strong> Read-only</p>
+      <a class="button secondary" href="#interactive-lab">Open the coding lab</a>
+      <p><a href="../reference/powershell-discovery-loop.html">Discovery cheat sheet</a></p>
+      <p><a href="../PROGRESS.md">View progress</a></p>
+    </aside>
+
+    <article class="lesson-content">
+      <section class="card recall">
+        <p class="eyebrow">Retrieve first</p>
+        <h2>Warm-up</h2>
+        <p>Answer from memory before reading further:</p>
+        <ol>
+          <li>What does the pipe character <code>|</code> do in PowerShell?</li>
+          <li>Inside <code>Where-Object</code>, what does <code>$_</code> represent?</li>
+          <li>What is one advantage of structured output over a sentence printed with <code>Write-Host</code>?</li>
+        </ol>
+        <label for="warm-up">Your answers</label>
+        <textarea id="warm-up" data-persist rows="6"></textarea>
+      </section>
+
+      <section>
+        <p class="eyebrow">Understand</p>
+        <h2>The administrator’s discovery loop</h2>
+        <p>Before changing a server, first discover what PowerShell can do and what data the current system exposes:</p>
+        <pre><code>find command → read help → run safely → inspect object → select properties</code></pre>
+
+        <h3>1. Find the command</h3>
+        <p><code>Get-Command</code> searches commands available on your computer. The result is itself a structured command-information object, not merely a name. Microsoft documents that it can return cmdlets, aliases, functions, scripts, and applications. <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command?view=powershell-7.5">Microsoft: Get-Command</a></p>
+
+        <h3>2. Read how it works</h3>
+        <p><code>Get-Help</code> shows syntax, parameters, descriptions, and examples. The <code>-Examples</code> switch is especially useful when you need a working shape without copying an entire solution. Local help can be limited until help files are updated. <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.6">Microsoft: Get-Help</a></p>
+
+        <h3>3. Inspect the returned object</h3>
+        <p><code>Get-Member</code> reveals an object’s type, properties, and methods. A property is stored information, such as a process name or network-interface alias. A method is an action that the object can perform. <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-7.6">Microsoft: Get-Member</a></p>
+
+        <h3>4. Keep only useful properties</h3>
+        <p><code>Select-Object</code> creates output containing the properties you request. This lets an infrastructure script produce a focused verification report rather than a wall of text. <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-object?view=powershell-7.5">Microsoft: Select-Object</a></p>
+      </section>
+
+      <section class="card example">
+        <p class="eyebrow">See it</p>
+        <h2>Worked example: inspect a process</h2>
+        <p>This example uses a process so it works on your train laptop. It demonstrates the same workflow you will later apply to server networking.</p>
+        <pre><code>Get-Command -Name Get-Process
+Get-Help -Name Get-Process -Examples
+
+$process = Get-Process | Select-Object -First 1
+$process | Get-Member
+$process | Select-Object -Property Name, Id, CPU</code></pre>
+
+        <p>Think of the process object like:</p>
+        <ul>
+          <li>a Python object whose values are available through attributes such as <code>process.name</code>;</li>
+          <li>a JavaScript object whose values are available through properties such as <code>process.name</code>.</li>
+        </ul>
+        <p>The exact syntax differs, but the mental model is similar: keep the structured value, then ask for the property you need.</p>
+      </section>
+
+      <section class="card task" id="interactive-lab">
+        <p class="eyebrow">Your turn</p>
+        <h2>Exercise 1: discover a command</h2>
+        <p>Edit the code below. Your goal is to use PowerShell command discovery to store information about <code>Get-ChildItem</code> in <code>$commandInfo</code>.</p>
+        <ol>
+          <li>Replace <code>TODO</code> in the editor.</li>
+          <li>Select <strong>Run checks</strong> or press <code>Ctrl+Enter</code>/<code>Cmd+Enter</code>.</li>
+          <li>Use the first failing check as your next hint.</li>
+          <li>After all checks pass, copy the code into the real exercise and run it in PowerShell.</li>
+        </ol>
+
+        <section class="code-lab" data-lab-id="lesson-0001-exercise-1">
+          <div class="code-lab-toolbar">
+            <strong>PowerShell · Command discovery</strong>
+            <span class="lab-status" data-state="idle" aria-live="polite">Not run</span>
+          </div>
+          <label class="code-editor-label" for="lesson-0001-editor">Code editor</label>
+          <textarea id="lesson-0001-editor" class="code-editor" spellcheck="false" autocomplete="off"># Store information about Get-ChildItem in this variable.
+$commandInfo = TODO
+
+# Send the structured command object to the output stream.
+$commandInfo</textarea>
+          <div class="code-lab-actions">
+            <button type="button" class="code-run">Run checks</button>
+            <button type="button" class="code-export" disabled>Save to repo</button>
+            <button type="button" class="code-copy">Copy code</button>
+            <button type="button" class="code-reset">Reset</button>
+          </div>
+          <div class="code-lab-results">
+            <h3>Automated checks</h3>
+            <ul class="code-tests" aria-live="polite">
+              <li>Run your code to see the checks.</li>
+            </ul>
+            <h3>Simulated console</h3>
+            <pre class="code-output" aria-live="polite">Run checks to see simulated output.</pre>
+            <p class="code-runtime-note">This offline lab checks your code structure and simulates output. It does not execute PowerShell or change your computer.</p>
+          </div>
+          <script type="application/json" class="code-lab-config">
+            {
+              "tests": [
+                {
+                  "label": "Assign a value to $commandInfo",
+                  "pattern": "\\$commandInfo\\s*="
+                },
+                {
+                  "label": "Use PowerShell command discovery",
+                  "pattern": "\\bGet-Command\\b"
+                },
+                {
+                  "label": "Use the Name parameter for Get-ChildItem",
+                  "pattern": "-Name\\s+(?:Get-ChildItem|'Get-ChildItem'|\\\"Get-ChildItem\\\")"
+                },
+                {
+                  "label": "Remove the TODO placeholder",
+                  "notPattern": "\\bTODO\\b"
+                }
+              ],
+              "exportFileName": "01-command-discovery.ps1",
+              "exportPickerId": "phase-1-powershell-practice",
+              "exportDescription": "PowerShell exercise",
+              "autoExport": true,
+              "successOutput": "SIMULATED OUTPUT\\n\\nCommandType  Name           ModuleName\\n-----------  ----           ----------\\nCmdlet       Get-ChildItem  Microsoft.PowerShell.Management\\n\\nChecks passed. Copy the code into the real .ps1 exercise and run it in PowerShell to verify actual behaviour."
+            }
+          </script>
+        </section>
+
+        <p>When the checks pass, your browser opens a save dialog for <code>01-command-discovery.ps1</code>. Save it in this course’s <code>learning/practice/</code> folder. If your browser downloads it instead, move the downloaded file into that folder. Then run the exported file in PowerShell for real verification.</p>
+
+        <label class="completion">
+          <input type="checkbox" data-persist>
+          I attempted the editor exercise before opening the hints.
+        </label>
+
+        <details>
+          <summary>Hint 1</summary>
+          <p>You need the command whose name begins with <code>Get-</code> and whose job is discovering commands.</p>
+        </details>
+        <details>
+          <summary>Hint 2</summary>
+          <p>The command takes a <code>-Name</code> parameter. The value you are looking for is <code>Get-ChildItem</code>.</p>
+        </details>
+        <details>
+          <summary>Partial structure</summary>
+          <pre><code>$commandInfo = COMMAND-HERE -Name "Get-ChildItem"</code></pre>
+          <p>Replace only <code>COMMAND-HERE</code>.</p>
+        </details>
+      </section>
+
+      <section class="card quiz" data-quiz-answer="get-member">
+        <p class="eyebrow">Check</p>
+        <h2>Retrieval checkpoint</h2>
+        <label for="checkpoint-answer">Which PowerShell command reveals an object’s properties and methods?</label>
+        <input id="checkpoint-answer" class="quiz-input" data-persist autocomplete="off">
+        <button type="button" class="quiz-check">Check answer</button>
+        <p class="quiz-feedback" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Connect to Build 2</p>
+        <h2>Why this matters on SRV01</h2>
+        <p>Your Build 2 notes use native commands including <code>ipconfig</code>, <code>ping</code>, <code>nslookup</code>, and <code>hostname</code>. Those were useful for diagnosis, but their output is primarily formatted text.</p>
+        <p>On Windows Server, the same discovery loop lets you investigate object-producing commands such as <code>Get-NetIPConfiguration</code>. Once you can inspect its properties, later lessons can build a structured pre-change network report and verify static IP and DNS configuration without parsing lines of text.</p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Reflect</p>
+        <h2>Put it into words</h2>
+        <label for="reflection">Why should an administrator inspect a command and its output object before using a configuration command?</label>
+        <textarea id="reflection" data-persist rows="5"></textarea>
+      </section>
+
+      <section>
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command?view=powershell-7.5">Microsoft Learn — Get-Command</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help?view=powershell-7.6">Microsoft Learn — Get-Help</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-member?view=powershell-7.6">Microsoft Learn — Get-Member</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/03-discovering-objects?view=powershell-7.5">Microsoft Learn — Discovering objects, properties, and methods</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-object?view=powershell-7.5">Microsoft Learn — Select-Object</a></li>
+        </ul>
+      </section>
+
+      <nav class="lesson-nav" aria-label="Lesson navigation">
+        <a class="button" href="../index.html">Course home</a>
+        <span class="button secondary" aria-disabled="true">Next lesson unlocks after review</span>
+      </nav>
+
+      <button class="text-button" type="button" data-reset-progress>Reset this page’s saved answers</button>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>Ask your learning coach about anything that is unclear. Your canonical course state is stored in <code>PROGRESS.md</code>.</p>
+    </div>
+  </footer>
+</body>
+</html>

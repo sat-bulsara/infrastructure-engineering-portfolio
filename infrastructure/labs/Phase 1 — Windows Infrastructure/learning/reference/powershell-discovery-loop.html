@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A quick offline reference for discovering PowerShell commands and objects.">
+  <title>PowerShell discovery loop · Phase 1 reference</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">Phase 1 — Windows Infrastructure</a>
+      <p class="eyebrow">Quick reference</p>
+      <h1>PowerShell discovery loop</h1>
+      <p class="lede">Find the command, understand it, inspect its output, and keep the properties that matter.</p>
+    </div>
+  </header>
+
+  <main class="shell lesson-grid">
+    <aside class="lesson-meta">
+      <h2>Use this when</h2>
+      <p>You need to administer something unfamiliar without guessing command syntax or property names.</p>
+      <a class="button secondary" href="../lessons/0001-discover-before-you-change.html">Return to Lesson 0001</a>
+    </aside>
+
+    <article class="lesson-content">
+      <section class="card recall">
+        <p class="eyebrow">The loop</p>
+        <h2>Five questions</h2>
+        <ol>
+          <li>What commands exist?</li>
+          <li>What syntax and examples are documented?</li>
+          <li>What does the safe read command return?</li>
+          <li>Which properties contain the evidence I need?</li>
+          <li>How will I verify a later change independently?</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2>Find commands</h2>
+        <pre><code>Get-Command -Name "Get-Process"
+Get-Command -Name "*NetIP*"
+Get-Command -Verb Get -Noun "*Service*"</code></pre>
+      </section>
+
+      <section class="card">
+        <h2>Read help</h2>
+        <pre><code>Get-Help -Name Get-Process
+Get-Help -Name Get-Process -Examples
+Get-Help -Name Get-Process -Parameter Name
+Get-Command -Name Get-Process -Syntax</code></pre>
+      </section>
+
+      <section class="card">
+        <h2>Inspect returned objects</h2>
+        <pre><code>$result = Get-Process | Select-Object -First 1
+$result | Get-Member
+$result.PSObject.TypeNames</code></pre>
+        <p><strong>Properties</strong> contain data. <strong>Methods</strong> perform actions.</p>
+      </section>
+
+      <section class="card">
+        <h2>Select evidence</h2>
+        <pre><code>$result | Select-Object -Property Name, Id, CPU</code></pre>
+        <p>Selecting properties produces focused structured output that can be filtered, exported, tested, or added to a report.</p>
+      </section>
+
+      <section class="card task">
+        <p class="eyebrow">Administrator rule</p>
+        <h2>Read before write</h2>
+        <p>Start with discovery and read-only inspection. Before running a configuration command, know:</p>
+        <ul>
+          <li>the exact target object;</li>
+          <li>the parameters and values;</li>
+          <li>whether <code>-WhatIf</code> is supported;</li>
+          <li>the expected result;</li>
+          <li>the separate command that will verify it;</li>
+          <li>how to recover in the disposable lab.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>This page works offline. Check current Microsoft documentation before using unfamiliar administrative commands.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
