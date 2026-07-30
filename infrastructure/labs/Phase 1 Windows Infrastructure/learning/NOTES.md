@@ -13,6 +13,10 @@
 - Explain every new piece of syntax before testing recall, starting from zero.
 - Begin with full scaffolding, then reduce explanations and hints as independent accuracy improves.
 - Use real `.ps1` files and PowerShell execution to verify actual behaviour.
+- Use normal ASCII hyphens in file and folder names. Do not use em dashes in terminal paths.
+- Provide an official web research link whenever a new concept is introduced.
+- Keep canonical learning state in the course files and adapt later exercises from demonstrated attempts.
+- Keep the course portable through Git so a new Codex chat on another computer can continue from `AGENTS.md`, `PROGRESS.md`, `NOTES.md`, and the workbook.
 
 ## Prior knowledge
 
