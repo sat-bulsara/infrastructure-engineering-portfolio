@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{LESSON_GOAL}}">
+  <title>{{LESSON_NUMBER}} · {{LESSON_TITLE}} · {{COURSE_TITLE}}</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/course.js" defer></script>
+  <script src="../assets/code-lab.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <a class="brand" href="../index.html">{{COURSE_TITLE}}</a>
+      <p class="eyebrow">Lesson {{LESSON_NUMBER}}</p>
+      <h1>{{LESSON_TITLE}}</h1>
+      <p class="lede">{{LESSON_GOAL}}</p>
+    </div>
+  </header>
+
+  <main class="shell lesson-grid">
+    <aside class="lesson-meta" aria-label="Lesson information">
+      <h2>In this lesson</h2>
+      <p><strong>Time:</strong> {{ESTIMATED_TIME}}</p>
+      <p><strong>Prerequisites:</strong> {{PREREQUISITES}}</p>
+      <a class="button secondary" href="../PROGRESS.md">View progress</a>
+    </aside>
+
+    <article class="lesson-content">
+      <section class="card recall">
+        <p class="eyebrow">Retrieve first</p>
+        <h2>Warm-up</h2>
+        {{RETRIEVAL_WARMUP}}
+      </section>
+
+      <section>
+        <p class="eyebrow">Understand</p>
+        <h2>The idea</h2>
+        {{EXPLANATION}}
+      </section>
+
+      <section class="card example">
+        <p class="eyebrow">See it</p>
+        <h2>Worked example</h2>
+        {{WORKED_EXAMPLE}}
+      </section>
+
+      <section class="card task">
+        <p class="eyebrow">Your turn</p>
+        <h2>Practice</h2>
+        {{PRACTICE}}
+        <label class="completion">
+          <input type="checkbox" data-persist>
+          I attempted this before opening the hints.
+        </label>
+
+        <details>
+          <summary>Hint 1</summary>
+          {{HINT_1}}
+        </details>
+        <details>
+          <summary>Hint 2</summary>
+          {{HINT_2}}
+        </details>
+        <details>
+          <summary>Partial structure</summary>
+          {{PARTIAL_STRUCTURE}}
+        </details>
+      </section>
+
+      <section class="card quiz" data-quiz-answer="{{QUIZ_ANSWER}}">
+        <p class="eyebrow">Check</p>
+        <h2>Retrieval checkpoint</h2>
+        <label for="checkpoint-answer">{{QUIZ_QUESTION}}</label>
+        <input id="checkpoint-answer" class="quiz-input" data-persist autocomplete="off">
+        <button type="button" class="quiz-check">Check answer</button>
+        <p class="quiz-feedback" aria-live="polite"></p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Reflect</p>
+        <h2>Put it into words</h2>
+        {{REFLECTION}}
+        <textarea data-persist rows="5" aria-label="Lesson reflection"></textarea>
+      </section>
+
+      <section>
+        <h2>Sources</h2>
+        {{SOURCES}}
+      </section>
+
+      <nav class="lesson-nav" aria-label="Lesson navigation">
+        {{PREVIOUS_LINK}}
+        <a class="button" href="../index.html">Course home</a>
+        {{NEXT_LINK}}
+      </nav>
+
+      <button class="text-button" type="button" data-reset-progress>Reset this page’s saved answers</button>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>Ask your learning coach about anything that is unclear. Your canonical course state is stored in <code>PROGRESS.md</code>.</p>
+    </div>
+  </footer>
+</body>
+</html>

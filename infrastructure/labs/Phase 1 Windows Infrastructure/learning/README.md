@@ -19,6 +19,20 @@ For an existing clone:
 git pull origin main
 ```
 
+Install the same tutor behaviour on Windows:
+
+```powershell
+& ".\.codex\install-learn-anything.ps1"
+```
+
+Install it on macOS:
+
+```bash
+bash "./.codex/install-learn-anything.sh"
+```
+
+Restart Codex after installing the skill.
+
 Open the repository, or this `learning` directory, as the Codex workspace. Start
 a new chat with:
 
@@ -40,3 +54,19 @@ before giving me the next task.
 
 Chat history is useful context, but these checked-in files are the source of
 truth between computers.
+
+## Keep both computers synchronized
+
+Before starting a session:
+
+```bash
+git pull origin main
+```
+
+After Codex updates the workbook or progress:
+
+```bash
+git add -A
+git commit -m "Update PowerShell learning progress"
+git push origin main
+```

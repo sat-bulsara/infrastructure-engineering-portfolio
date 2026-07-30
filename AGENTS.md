@@ -15,3 +15,10 @@ PowerShell exercise:
 
 The course files are the portable source of truth across computers and Codex
 chats.
+
+The portable source for the reusable tutor skill is:
+`.codex/skills/learn-anything/`.
+
+Install it on a new computer with the matching script in `.codex/`, then
+restart Codex. The repository guidance remains the fallback if the skill is not
+installed.

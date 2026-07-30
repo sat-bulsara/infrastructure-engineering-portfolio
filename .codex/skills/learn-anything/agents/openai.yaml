@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learn Anything"
+  short_description: "Stateful HTML lessons for any subject"
+  default_prompt: "Use $learn-anything to teach me a topic through stateful HTML lessons and practice."
