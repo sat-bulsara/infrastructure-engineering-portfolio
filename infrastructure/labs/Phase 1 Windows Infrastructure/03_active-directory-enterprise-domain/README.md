@@ -2,31 +2,31 @@
 
 ## Overview
 
-Built a Windows Server 2025 Active Directory environment for a fictional organisation, with structured identity management, PowerShell-based user provisioning and group-based access control.
+Built a Windows Server 2025 Active Directory environment for a fictional organisation, with centralised identity management, departmental security groups and PowerShell-based user provisioning.
 
 **Domain:** `ad.anudia.co.uk`  
 **Domain Controller:** `SRV01`  
-**Users:** ~200  
-**Departments:** IT, HR, Finance, Sales, Marketing, Operations
+**Departments:** IT, HR, Finance, Sales, Marketing, Operations  
+**Department group memberships:** 200
 
-The domain now provides the identity foundation for the rest of my Windows infrastructure lab.
+The domain provides the identity foundation for the rest of my Windows infrastructure lab.
 
 ---
 
 ## Security Considerations
 
-Security was part of the design from the start rather than something added afterwards.
+Security was part of the design from the start.
 
-For this project I focused on:
+For this build I focused on:
 
-- **Least privilege** — access is based on role and group membership.
-- **Separate admin access** — privileged administration is kept separate from standard user access.
-- **Group-based access** — security groups are used instead of assigning access directly to individual users.
-- **Credential handling** — passwords are not stored in CSV files, scripts or GitHub.
-- **Privileged access auditing** — sensitive AD groups are checked after provisioning.
-- **Authentication monitoring** — failed logons are reviewed through Windows Security events.
-- **Verification** — provisioning and access are checked rather than assumed to be correct.
-- **Break/fix testing** — excessive access and configuration mistakes are deliberately tested and remediated.
+- **Least privilege:** standard accounts remain non-privileged.
+- **Separate admin access:** privileged work uses a dedicated administrative account.
+- **Group-based access:** departmental access is managed through security groups rather than individual users.
+- **Credential protection:** passwords are not stored in CSV files, scripts or GitHub.
+- **Privileged-access auditing:** sensitive AD groups are reviewed after provisioning.
+- **Authentication monitoring:** failed logons are reviewed through Windows Security events.
+- **Verification:** bulk changes and permissions are checked rather than assumed to be correct.
+- **Break/fix testing:** incorrect OU placement and excessive group membership are deliberately tested and remediated.
 
 ---
 
@@ -40,13 +40,13 @@ I verified the resulting configuration with PowerShell.
 
 ![Forest configuration](screenshots/11-query-active-directory-forest.png)
 
-SRV01 is currently the domain controller and Global Catalog for the environment.
+SRV01 currently acts as the domain controller and Global Catalog.
 
 ---
 
 ## Directory Design
 
-I structured Active Directory around six business departments:
+The environment is organised around six business departments:
 
 - IT
 - HR
@@ -55,129 +55,175 @@ I structured Active Directory around six business departments:
 - Marketing
 - Operations
 
-![Active Directory structure](screenshots/04-active-directory-ou-structure.png)
+Each department uses a security group following the naming convention:
 
-Department security groups provide the basis for access control rather than assigning permissions directly to individual users.
+`GG_<Department>_Users`
 
-This structure can be reused later for Group Policy, file permissions and Joiner/Mover/Leaver processes.
+This provides a group-based access model that can later be reused for file permissions, Group Policy and Joiner/Mover/Leaver processes.
+
+The OU structure was refined during the build as the environment developed from initial testing into the final departmental design.
 
 ---
 
-## Administrative Access
+## Standard and Administrative Access
 
-I created separate administrative access and verified its privileged group membership.
+Normal and privileged access are kept separate.
 
-![Administrative access](screenshots/08-admin-user-group-membership.png)
+My standard account remains a normal domain user without Domain Admin privileges.
 
-This keeps everyday user access separate from privileged administration.
+![Standard account membership](screenshots/08-standard-user-group-membership.png)
+
+A separate `sat.admin` account is used for privileged administration.
+
+![Administrative account membership](screenshots/12-query-domain-admins-members.png)
+
+This keeps elevated privileges away from the account used for normal activity.
 
 ---
 
 ## PowerShell Bulk Provisioning
 
-Creating hundreds of users manually would be slow and inconsistent, so I moved the provisioning process to PowerShell.
+Rather than creating departmental users individually, I used CSV data and PowerShell to provision accounts at scale.
 
-Using CSV employee data, I provisioned users across all six departments and automated:
+The workflow handled:
 
 - Username creation
-- OU placement
-- Department group membership
+- Departmental OU placement
+- Security-group membership
 - Existing-account checks
-- Duplicate handling
+- Duplicate names
+- Safe reruns
 - Password change at first logon
 
-Passwords were not stored in the CSV or hard-coded into the script.
+The temporary account password was supplied securely at runtime rather than stored in the CSV.
 
-I audited the department groups afterwards to verify the results.
+I audited the resulting department groups afterwards.
 
-![Department group audit](screenshots/15-audit-department-group-membership-counts.png)
+![Department membership audit](screenshots/15-audit-department-group-membership-counts.png)
 
-The bulk-created departmental groups contained 195 users, alongside accounts created manually earlier in the build.
+The six department groups contained **200 memberships in total**:
+
+| Department | Memberships |
+| --- | ---: |
+| IT | 25 |
+| HR | 20 |
+| Finance | 30 |
+| Sales | 50 |
+| Marketing | 30 |
+| Operations | 45 |
+| **Total** | **200** |
+
+These figures represent group memberships rather than a verified count of unique AD accounts.
 
 ---
 
 ## Security Validation
 
-After bulk provisioning, I checked privileged groups including Domain Admins, Enterprise Admins and Schema Admins to make sure standard employee accounts had not received privileged access.
+After provisioning, I reviewed sensitive Active Directory groups including:
+
+- Domain Admins
+- Enterprise Admins
+- Schema Admins
 
 ![Privileged group audit](screenshots/16-audit-privileged-group-members.png)
 
-I also reviewed the domain password and account lockout configuration.
+This helped identify any unexpected privileged access after making changes at scale.
 
-![Password and lockout policy](screenshots/17-review-default-domain-password-policy.png)
+### Password and Lockout Baseline
 
-Failed authentication attempts were reviewed using Windows Security Event ID `4625`.
+I reviewed the existing domain password and account lockout configuration.
+
+![Password policy baseline](screenshots/17-review-default-domain-password-policy.png)
+
+The review identified a `LockoutThreshold` of `0`, meaning account lockout was disabled.
+
+I treated this as a security finding rather than assuming the default configuration was suitably hardened.
+
+### Failed Authentication
+
+I also reviewed failed authentication attempts using Windows Security Event ID `4625`.
 
 ![Failed authentication events](screenshots/18-review-failed-logon-events-4625.png)
+
+This introduced Windows event logs as another source for identity troubleshooting and security monitoring.
 
 ---
 
 ## AD Health
 
-I ran `dcdiag` to check the health of the domain controller and its Active Directory services.
+I ran `dcdiag` to verify the health of the domain controller and Active Directory services.
 
 ![Domain controller health](screenshots/19-run-domain-controller-health-tests.png)
 
-I also verified the five FSMO role holders.
+I also verified the FSMO role holders.
 
 ![FSMO roles](screenshots/20-query-fsmo-role-holders.png)
 
-SRV01 currently holds all five roles, which is expected in this single-domain-controller environment.
+SRV01 currently holds all five FSMO roles, which is expected in this single-domain-controller environment.
 
 ---
 
 ## Break/Fix
 
-I deliberately introduced configuration problems so I could practise identifying and correcting them.
+I deliberately introduced configuration problems to practise identifying and correcting them.
 
 ### Incorrect OU Placement
 
-I moved an IT employee into the HR OU while their department attribute still identified them as IT.
+I moved an employee into the wrong departmental OU while their department information still reflected their correct role.
 
-I identified the mismatch and returned the account to the correct OU.
+I identified the mismatch and returned the account to the correct location.
 
 ![OU troubleshooting](screenshots/21-move-user-between-organizational-units.png)
 
+This demonstrated why OU placement needs to be verified, particularly once policies are linked to the directory structure.
+
 ### Excessive Group Membership
 
-I gave an IT employee Finance group membership, creating access outside their role.
+I deliberately gave an employee membership of a departmental security group outside their role.
 
-I identified the incorrect membership, removed it and verified the user's groups again.
+I identified and removed the unnecessary membership.
 
 ![Group membership troubleshooting](screenshots/22-remove-user-from-finance-security-group.png)
 
-This demonstrated how simple identity-management mistakes can become security issues if group membership is not reviewed.
+This demonstrated how a simple group-membership mistake can become a least-privilege issue.
 
----
+------------
 
 ## Troubleshooting
 
-Bulk provisioning exposed several problems that I had to work through:
+Bulk provisioning exposed several issues:
 
 - Malformed department data
 - Incorrect OU paths
 - Duplicate employee names
-- Existing accounts during script reruns
+- Existing objects during reruns
 - Insufficient administrative permissions
 
-Rather than manually working around failed accounts, I corrected the provisioning workflow and verified the results before continuing.
+Rather than manually working around failed accounts, I corrected the provisioning process and verified the results before continuing.
 
-This made the process safer and more repeatable.
+This made the workflow safer and more repeatable.
 
----
+------------
 
 ## Outcome
 
-I finished with a working Active Directory environment providing:
+The finished environment provides:
 
-- Centralised identity management
-- Departmental OU structure
+- Centralised domain identity
+- Departmental organisation
 - Group-based access control
-- Separate privileged administration
-- PowerShell user provisioning
+- Separate standard and privileged accounts
+- PowerShell-based user provisioning
 - Privileged-access auditing
 - Authentication monitoring
 - AD health verification
 - Break/fix troubleshooting
 
-The domain will now act as the identity foundation for later Group Policy, DNS, DHCP, file services, PKI and hybrid identity projects.
+The domain now provides the identity foundation for later Group Policy, DNS, DHCP, file services, PKI and hybrid identity work.
+
+---
+
+## Documentation
+
+- [PowerShell Cheat Sheet](03_active-directory-powershell-cheatsheet.md)
+- [Build Instructions](active-directory-instructions.md)
