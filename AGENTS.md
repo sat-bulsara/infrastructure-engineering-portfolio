@@ -22,3 +22,12 @@ The portable source for the reusable tutor skill is:
 Install it on a new computer with the matching script in `.codex/`, then
 restart Codex. The repository guidance remains the fallback if the skill is not
 installed.
+
+## Infrastructure lab work
+
+When creating, teaching, reviewing, or documenting an infrastructure lab,
+read and follow `infrastructure/labs/AGENTS.md`.
+
+Treat each lab as an incremental learning project. Apply security-first
+thinking and accurate evidence standards without presenting a learning lab as
+a production environment.

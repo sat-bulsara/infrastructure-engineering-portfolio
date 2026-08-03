@@ -18,6 +18,7 @@
 - Keep canonical learning state in the course files and adapt later exercises from demonstrated attempts.
 - Keep the course portable through Git so a new Codex chat on another computer can continue from `AGENTS.md`, `PROGRESS.md`, `NOTES.md`, and the workbook.
 - Keep the reusable `learn-anything` tutor skill checked into `.codex/skills/learn-anything/` with Windows and macOS installers.
+- Explicitly tell Sat when to take a screenshot and what the screenshot must prove. Do not ask for screenshots before the relevant output has been reviewed.
 
 ## Prior knowledge
 

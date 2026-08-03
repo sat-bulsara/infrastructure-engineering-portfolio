@@ -2,21 +2,23 @@
 
 ## Current phase
 
-Build 2 — First Windows Server
+Project A - Joiner, Mover, Leaver Lifecycle planning and discovery
 
 ## Current focus
 
-PowerShell from zero for Build 2 - store the static IP address and substitute variable values inside a double-quoted status message.
+Establish the current Active Directory scope with one read-only query before designing or changing the JML lifecycle.
 
 ## Next action
 
-Read the linked Microsoft explanation of double-quoted strings, complete only Exercise 3 in `practice/00-powershell-from-zero.ps1`, run the workbook, and tell Codex `check` with the output.
+On the separate Windows Server lab, open Windows PowerShell as the standard domain account, run the recorded `Get-ADDomain` discovery query, and return the exact output to Codex for review.
 
 ## Current evidence
 
 - A Windows Server 2025 installation and initial configuration are documented locally.
 - Basic PowerShell syntax exercises have been attempted in the portfolio.
 - Project-specific server-administration PowerShell has not yet been demonstrated independently.
+- Historical Build 3 screenshots show an `ad.anudia.co.uk` domain on `SRV01`, departmental OUs and groups, membership audits, AD health output, and earlier mover/removal exercises.
+- The remote lab's current state has not yet been established and no Project A infrastructure or cloud change is verified.
 
 ## Review queue
 
@@ -39,3 +41,4 @@ Read the linked Microsoft explanation of double-quoted strings, complete only Ex
 | 2026-07-29 | Quick drill 2 corrected | `$serverName` now stores the exact project value `SRV01`, and a local PowerShell run produced the expected output. An independent terminal output was not pasted by the learner. | Full explanation, correction, and runtime assistance | Store the Build 2 IP address and use variable substitution in a status message. |
 | 2026-07-30 | Cross-machine setup | No new PowerShell mastery claim. Repository instructions and a continuation guide were added so new Codex chats can locate the saved course state. | Portability setup | Pull the latest commit on the other computer and resume Exercise 3. |
 | 2026-07-30 | Tutor replication | No new PowerShell mastery claim. The reusable tutor skill and cross-platform installers were packaged in the repository for the train laptop. | Skill packaging | Install the skill on the other computer, restart Codex, and resume Exercise 3. |
+| 2026-08-02 | Project A planning | No infrastructure change or new mastery claim. Build 3 evidence was inspected and a phased JML plan was created with local, workstation, and cloud safety gates. | Planning and repository review | Run one read-only AD domain scope query on the Windows lab and return the exact output. |
