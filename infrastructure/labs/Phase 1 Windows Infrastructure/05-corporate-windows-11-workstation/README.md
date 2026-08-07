@@ -1,6 +1,6 @@
 # Corporate Windows 11 Workstation | Active Directory Domain Join
 
-A Windows 11 Pro workstation deployed and integrated into an Active Directory environment, with domain authentication, DNS, least-privilege checks, endpoint security verification, and a controlled DNS break/fix exercise.
+A documented learning lab in which I deployed a Windows 11 Pro workstation, integrated it with Active Directory, verified its security baseline, and diagnosed a controlled DNS failure.
 
 ## Project Overview
 
@@ -26,6 +26,30 @@ The project covered:
 - Windows Firewall and Microsoft Defender checks
 - BitLocker status review
 - Controlled DNS break/fix troubleshooting
+
+## Scope and Evidence Boundaries
+
+This is a single-client, single-domain-controller learning environment rather than a production design. It does not include high availability, central endpoint management, or production credential and recovery-key processes.
+
+The retained screenshots directly evidence the successful domain join, domain-controller discovery, secure-channel health, domain-authenticated network profile, DNS failure and recovery, Windows Firewall status, and Microsoft Defender status.
+
+Dedicated screenshots were not retained for the final computer-object location, the standard-user and local-administrator review, BitLocker output, or Windows Update status. Those checks are described where relevant, but they are not presented as screenshot-proven results.
+
+## Security Considerations
+
+Security decisions made during the project included:
+
+- Used Windows 11 Pro for Active Directory support
+- Used the internal AD DNS server for domain services
+- Prestaged the computer account in the `Workstations` OU
+- Used a separate privileged identity for administration
+- Kept the standard domain user out of local `Administrators`
+- Verified Windows Firewall, Microsoft Defender Antivirus, and real-time protection
+- Reviewed BitLocker without enabling it before defining recovery-key storage
+- Established a healthy baseline before break/fix testing
+- Verified the environment after repairing the injected fault
+
+The lab used an account with existing domain-administration rights for the join. In a production environment, computer-join permissions should be delegated to a suitably restricted identity instead of granting broad administrative rights.
 
 ## Environment
 
@@ -68,7 +92,9 @@ This dependency became particularly important during the later break/fix exercis
 
 Before joining the workstation, I prestaged the `CLIENT01` computer account inside the `Workstations` OU.
 
-![CLIENT01 prestaged in Active Directory](screenshots/01-client01-prestage.png)
+![ADUC computer-account creation dialog configured for CLIENT01 in the Workstations OU](screenshots/01-client01-prestage.png)
+
+The screenshot records the computer-account creation dialog configured for the intended OU before confirmation. A separate post-creation screenshot of the object in Active Directory Users and Computers was not retained.
 
 This gave the computer account a controlled location in Active Directory rather than allowing it to remain in the default `Computers` container.
 
@@ -124,6 +150,8 @@ Administrative work was performed using a separate privileged identity.
 
 This maintains separation between normal user activity and administrative access.
 
+A dedicated screenshot or exported membership listing was not retained for this check. A future evidence pass should capture the signed-in user and the final membership of the local `Administrators` group without exposing credentials.
+
 ## Endpoint Security Baseline
 
 Before introducing a troubleshooting scenario, I established a healthy endpoint baseline.
@@ -139,7 +167,7 @@ Get-NetFirewallProfile | Select-Object Name, Enabled
 Get-MpComputerStatus | Select-Object AntivirusEnabled, RealTimeProtectionEnabled
 ```
 
-![CLIENT01 healthy baseline](screenshots/05-client01-final-healthy-baseline.png)
+![CLIENT01 healthy baseline showing identity, domain connectivity, firewall, and Defender checks](screenshots/05-client01-final-healthy-baseline.png)
 
 The final checks confirmed:
 
@@ -154,6 +182,8 @@ The final checks confirmed:
 BitLocker status was also reviewed as part of the endpoint assessment.
 
 I did not enable BitLocker during this project because I first want a defined recovery-key storage process rather than enabling disk encryption without a recovery plan.
+
+The BitLocker command output was not retained. Windows Update status was also not captured, so this README does not claim that the workstation was fully patched at the time of testing.
 
 ## Break/Fix Exercise - Active Directory DNS Failure
 
@@ -223,6 +253,14 @@ The results confirmed that:
 
 The workstation was returned to its known-good state.
 
+The retained screenshot proves functional DNS and domain recovery, but it does not show a final direct query of the configured DNS server. If I repeat this test, I will add the following read-only verification after the repair:
+
+```powershell
+Get-DnsClientServerAddress `
+    -InterfaceAlias "Ethernet" `
+    -AddressFamily IPv4
+```
+
 ## What I Learned
 
 The biggest lesson from this project was that a domain join depends on more than network connectivity.
@@ -237,25 +275,20 @@ Instead of changing settings immediately, I worked through the problem in stages
 
 It also reinforced the importance of verifying configuration rather than assuming that a successful domain join means the workstation is completely healthy.
 
-## Security Considerations
+## Documentation
 
-Security decisions made during the project included:
+- [Build instructions and validation commands](INSTRUCTIONS.md)
 
-- Used Windows 11 Pro for Active Directory support
-- Used the internal AD DNS server for domain services
-- Prestaged the computer account in the Workstations OU
-- Used a separate privileged identity for administration
-- Kept the standard domain user out of local Administrators
-- Verified Windows Firewall
-- Verified Microsoft Defender Antivirus
-- Verified real-time protection
-- Reviewed BitLocker without enabling it before defining recovery-key storage
-- Established a healthy baseline before break/fix testing
-- Verified the environment after repairing the injected fault
+## Trusted References
+
+- [Join a computer to a domain](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/join-computer-to-domain)
+- [Domain join permissions and delegated access](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/active-directory-domain-join-permissions)
+- [Domain join troubleshooting with the NetSetup log](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/domain-join-log-analysis)
+- [BitLocker recovery overview](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-overview)
 
 ## Outcome
 
-`CLIENT01` is now a functioning corporate-style Windows workstation integrated with the `ad.anudia.co.uk` Active Directory environment.
+`CLIENT01` completed the learning-lab build as a functioning corporate-style Windows workstation integrated with the `ad.anudia.co.uk` Active Directory environment.
 
 The client can:
 
@@ -265,8 +298,10 @@ The client can:
 - Maintain a healthy secure channel
 - Identify its network as domain authenticated
 - Operate with Windows Firewall and Defender enabled
-- Maintain separation between standard and privileged accounts
+- Maintain the tested separation between standard and privileged accounts
 
 The controlled DNS failure was also successfully diagnosed, repaired, and verified.
 
-This workstation now provides the client platform for the next stage of the lab: **Group Policy deployment and management**.
+The retained technical evidence confirms the core domain, DNS, firewall, and antivirus outcomes. The evidence gaps listed above provide a clear checklist for strengthening a future iteration.
+
+This workstation provides the client platform for the next stage of the lab: **Group Policy deployment and management**.
