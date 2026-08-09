@@ -23,6 +23,20 @@ Install it on a new computer with the matching script in `.codex/`, then
 restart Codex. The repository guidance remains the fallback if the skill is not
 installed.
 
+## Stateful Azure and AZ-104 tutoring
+
+When the user asks to learn Azure, continue AZ-104, practise, check an answer,
+or receive the next Azure exercise:
+
+1. Use this course root: `azure/learning/az-104/`.
+2. Read `azure/AGENTS.md` and the nested course `AGENTS.md` before teaching or
+   editing.
+3. Read the saved mission, curriculum, notes, progress, resources, recent
+   learning records, and current exercise instead of relying on chat history.
+4. Use `azure/assets/azure-roadmap.md` as the progressive project path.
+5. Treat the saved files as the portable source of truth across computers and
+   Codex tasks.
+
 ## Infrastructure lab work
 
 When creating, teaching, reviewing, or documenting an infrastructure lab,
