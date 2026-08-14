@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 0002 - Domain controllers, topology, and FSMO</title>
+  <link rel="stylesheet" href="../assets/course.css"><script src="../assets/course.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><div class="shell"><a class="brand" href="../index.html">APL-1008 AD DS companion</a><p class="eyebrow">Lesson 0002 of 7</p><h1>Domain controllers, topology, and FSMO</h1><p class="lede">Use the official module, then prove you understand placement, role ownership, and safe change boundaries.</p></div></header>
+  <main class="shell lesson-grid">
+    <aside class="lesson-meta"><h2>Outcome</h2><p>You can deploy and place a DC, identify FSMO scope, and verify health independently.</p><p><strong>Official module:</strong> 1 of 5</p><button class="text-button" data-reset-progress>Reset this page</button></aside>
+    <article class="lesson-content">
+      <section class="card recall"><p class="eyebrow">Retrieve first</p><h2>Before Microsoft Learn</h2><label for="recall">Why might an organisation use more than one domain controller, and what still depends on DNS?</label><textarea id="recall" data-persist rows="5"></textarea></section>
+      <section><h2>Compact model</h2><p>A domain controller hosts AD DS and participates in multimaster replication. Sites and subnets model network location. Five operations-master roles coordinate the operations that should not be performed independently everywhere.</p><table><thead><tr><th>Scope</th><th>FSMO roles</th></tr></thead><tbody><tr><td>Forest</td><td>Schema Master, Domain Naming Master</td></tr><tr><td>Domain</td><td>RID Master, PDC Emulator, Infrastructure Master</td></tr></tbody></table></section>
+      <section class="card example"><p class="eyebrow">Worked reasoning</p><h2>Transfer, do not seize</h2><p>If the current role holder is online and healthy, transfer the role. Seizure is a recovery action for a failed holder that will not return. Evidence should show ownership before and after.</p><pre><code>netdom query fsmo
+
+Get-ADDomainController -Filter * |
+    Select-Object HostName, Site, IsGlobalCatalog</code></pre></section>
+      <section class="card task"><p class="eyebrow">Learner task</p><h2>Complete module 1 and its assessment</h2><p>After each unit, close the page and write three facts from memory. In your disposable lab, produce a read-only inventory of DCs, FSMO owners, sites, subnets, DNS health, and replication health before changing anything.</p><details><summary>Hint 1</summary><p>Start with discovery. Do not promote or move a DC until the current state and rollback point are recorded.</p></details><details><summary>Hint 2</summary><p>Your report should answer: what exists, where is it, who owns each role, and is replication healthy?</p></details></section>
+      <section class="card quiz"><p class="eyebrow">Mini quiz</p><h2>Module 1 check</h2><div class="quiz-stack">
+        <div class="quiz-question" data-quiz-answer="b"><p><strong>1.</strong> Which role is forest-wide?</p><p>A. RID Master<br>B. Schema Master<br>C. PDC Emulator</p><input id="q1" class="quiz-input" data-persist placeholder="A, B, or C"><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+        <div class="quiz-question" data-quiz-answer="3|three"><p><strong>2.</strong> How many FSMO roles are held per domain?</p><input id="q2" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+        <div class="quiz-question" data-quiz-answer="subnet|an ad subnet|active directory subnet"><p><strong>3.</strong> What AD object maps an IP range to a site?</p><input id="q3" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+        <div class="quiz-question" data-quiz-answer="transfer|role transfer"><p><strong>4.</strong> The current holder is healthy. Transfer or seize?</p><input id="q4" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+        <div class="quiz-question" data-quiz-answer="b"><p><strong>5.</strong> Which is the best post-change evidence?</p><p>A. No error appeared<br>B. Ownership and AD health queried independently<br>C. A screenshot of the planned command</p><input id="q5" class="quiz-input" data-persist placeholder="A, B, or C"><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+      </div><details><summary>Answer explanations</summary><ol><li>Schema Master is forest-wide.</li><li>RID, PDC Emulator, and Infrastructure Master are domain-wide.</li><li>An AD subnet maps a network to a site.</li><li>Use transfer while the holder is available.</li><li>Independent state and health queries prove the change.</li></ol></details></section>
+      <section><h2>Reflection and evidence</h2><label for="reflection">Explain one difference between a domain, site, and subnet.</label><textarea id="reflection" data-persist rows="4"></textarea><label class="completion"><input id="complete" type="checkbox" data-persist> I completed the official assessment, this mini quiz, and the read-only inventory.</label></section>
+      <section><h2>Official source</h2><p><a href="https://learn.microsoft.com/en-us/training/modules/deploy-manage-active-directory-domain-services-domain-controllers/">Deploy and manage AD DS domain controllers</a></p></section>
+      <nav class="lesson-nav"><a href="0001-start-here-and-readiness-baseline.html">Previous</a><a class="button" href="0003-create-and-manage-ad-objects.html">Next lesson</a></nav>
+    </article>
+  </main>
+</body>
+</html>

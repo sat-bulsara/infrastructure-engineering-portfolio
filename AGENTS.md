@@ -37,6 +37,22 @@ or receive the next Azure exercise:
 5. Treat the saved files as the portable source of truth across computers and
    Codex tasks.
 
+## Stateful AD DS Applied Skills companion
+
+When the user asks about APL-1008, the Administer Active Directory Domain
+Services Applied Skill, its Microsoft Learn modules, the guided project, or its
+timed practice assessment:
+
+1. Use this course root: `infrastructure/learning/ad-ds-applied-skills/`.
+2. Read the nested `AGENTS.md` before teaching or editing.
+3. Read the saved mission, curriculum, notes, progress, resources, recent
+   learning records, and current lesson before continuing.
+4. Treat Microsoft Learn as the source for official modules and guided labs.
+   Use the local course as a companion for readiness checks, retrieval,
+   evidence, repetition, troubleshooting, and assessment practice.
+5. Do not mark a skill complete from a Microsoft Learn completion badge alone.
+   Require independent lab evidence and explanation.
+
 ## Infrastructure lab work
 
 When creating, teaching, reviewing, or documenting an infrastructure lab,

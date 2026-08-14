@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 0001 - Start here and readiness baseline</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/course.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><div class="shell">
+    <a class="brand" href="../index.html">APL-1008 AD DS companion</a>
+    <p class="eyebrow">Lesson 0001 of 7</p>
+    <h1>Start here and readiness baseline</h1>
+    <p class="lede">Confirm that your lab is safe and discover what you can already explain without notes.</p>
+  </div></header>
+  <main class="shell lesson-grid">
+    <aside class="lesson-meta">
+      <h2>Outcome</h2>
+      <p>You can state the assessment areas, explain the lab boundary, and identify your first gap.</p>
+      <p><strong>Time:</strong> 15 minutes</p>
+      <button class="text-button" data-reset-progress>Reset this page</button>
+    </aside>
+    <article class="lesson-content">
+      <section class="card recall">
+        <p class="eyebrow">Retrieve first</p>
+        <h2>No notes for three minutes</h2>
+        <label for="baseline-recall">What jobs does an AD DS administrator perform?</label>
+        <textarea id="baseline-recall" data-persist rows="6" placeholder="Write what you remember before opening Microsoft Learn."></textarea>
+      </section>
+      <section>
+        <h2>The five assessed areas</h2>
+        <p>APL-1008 evaluates domain controllers, topology, directory objects, Group Policy, and AD DS security. The assessment is a hands-on lab, so recognising a term is not enough. You need to produce the required state and verify it.</p>
+        <pre><code>discover -> scope -> snapshot -> change -> verify -> explain -> record</code></pre>
+      </section>
+      <section class="card warning">
+        <p class="eyebrow">Safety gate</p>
+        <h2>Use a disposable environment</h2>
+        <p>Do not practise risky AD changes in a live organisation. Confirm an authorised lab and a recoverable snapshot.</p>
+        <label class="completion"><input id="lab-authorised" type="checkbox" data-persist> My lab is authorised and disposable.</label>
+        <label class="completion"><input id="snapshot-confirmed" type="checkbox" data-persist> I know which snapshot I will restore if a change fails.</label>
+        <label class="completion"><input id="no-secrets" type="checkbox" data-persist> I will not save passwords, tokens, or real user data in Git.</label>
+      </section>
+      <section class="card task">
+        <p class="eyebrow">Learner task</p>
+        <h2>Complete the written diagnostic</h2>
+        <p>Open <a href="../practice/readiness-diagnostic.md">readiness-diagnostic.md</a>. Answer from memory, then mark each response as confident, partial, or unknown. Check sources only after the first pass.</p>
+        <details><summary>Hint 1</summary><p>Think about servers, network placement, identities, policies, and security.</p></details>
+        <details><summary>Hint 2</summary><p>The official study guide groups the work into five skill areas.</p></details>
+      </section>
+      <section class="card quiz">
+        <p class="eyebrow">Mini quiz</p><h2>Readiness check</h2>
+        <div class="quiz-stack">
+          <div class="quiz-question" data-quiz-answer="b"><p><strong>1.</strong> Which result is strongest evidence of capability?</p><p>A. A module badge<br>B. A verified lab change plus an explanation<br>C. A copied command</p><input id="q1" class="quiz-input" data-persist placeholder="A, B, or C"><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+          <div class="quiz-question" data-quiz-answer="snapshot|a snapshot|recoverable snapshot"><p><strong>2.</strong> What should exist before a risky lab change?</p><input id="q2" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+          <div class="quiz-question" data-quiz-answer="5|five"><p><strong>3.</strong> How many broad APL-1008 skill areas are assessed?</p><input id="q3" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+          <div class="quiz-question" data-quiz-answer="b"><p><strong>4.</strong> Where should passwords be recorded?</p><p>A. In the evidence log<br>B. Nowhere in this repository<br>C. In a screenshot</p><input id="q4" class="quiz-input" data-persist placeholder="A, B, or C"><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+          <div class="quiz-question" data-quiz-answer="verify|verification"><p><strong>5.</strong> Complete: discover, scope, snapshot, change, ___, explain, record.</p><input id="q5" class="quiz-input" data-persist><button class="quiz-check">Check</button><p class="quiz-feedback" aria-live="polite"></p></div>
+        </div>
+        <details><summary>Answer explanations</summary><ol><li>B: performance plus explanation is stronger than completion.</li><li>A recoverable snapshot creates a rollback path.</li><li>The study guide has five broad areas.</li><li>Secrets do not belong in Git or screenshots.</li><li>Verification proves the intended state exists.</li></ol></details>
+      </section>
+      <section><h2>Reflection</h2><label for="reflection">Which area feels least familiar, and what evidence would make you confident?</label><textarea id="reflection" data-persist rows="4"></textarea><label class="completion"><input id="complete" type="checkbox" data-persist> I completed retrieval, the diagnostic, and the mini quiz.</label></section>
+      <section><h2>Official sources</h2><ul class="source-list"><li><a href="https://learn.microsoft.com/en-gb/credentials/applied-skills/administer-active-directory-domain-services/">Credential page</a></li><li><a href="https://learn.microsoft.com/en-us/credentials/applied-skills/resources/study-guides/apl-1008">APL-1008 study guide</a></li></ul></section>
+      <nav class="lesson-nav"><a href="../index.html">Course home</a><a class="button" href="0002-domain-controllers-topology-and-fsmo.html">Next lesson</a></nav>
+    </article>
+  </main>
+</body>
+</html>

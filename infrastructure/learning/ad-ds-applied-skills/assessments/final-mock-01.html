@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APL-1008 final mock 01</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script src="../assets/course.js" defer></script>
+  <script src="assessment-timer.js" defer></script>
+</head>
+<body>
+<header class="site-header"><div class="shell"><a class="brand" href="../index.html">APL-1008 AD DS companion</a><p class="eyebrow">Original practice assessment</p><h1>45-minute final mock 01</h1><p class="lede">Complete 15 grouped tasks in a clean disposable lab. This is practice content, not copied Microsoft assessment material.</p></div></header>
+<main class="shell lesson-grid">
+<aside class="lesson-meta"><h2>Assessment state</h2><p class="timer" data-timer-display>45:00</p><p data-timer-state>Not started</p><div class="button-row"><button data-timer-start>Start</button><button class="button secondary" data-timer-reset>Discard attempt</button></div></aside>
+<article class="lesson-content">
+<section class="card danger"><p class="eyebrow">Before starting</p><h2>Closed-guide conditions</h2><ul><li>Complete <a href="environment-readiness.md">environment readiness</a> and restore the clean snapshot.</li><li>Close the study guide, Microsoft Learn, Codex, and copied procedures.</li><li>Use Windows tools, PowerShell, and built-in command help.</li><li>Do not pause the timer. At zero, stop changing the lab.</li><li>Never record or expose passwords.</li></ul></section>
+<section><h2>Scenario</h2><p>Northstar Ltd needs a second domain controller, structured identity administration, controlled policy, and security evidence in its disposable training forest. Adapt the example names to the prepared domain DN, but keep the requested object names so they can be scored consistently.</p></section>
+<section><h2>Tasks</h2><ol class="task-list">
+<li><label class="completion"><input id="task01" type="checkbox" data-persist> <strong>1. Additional DC:</strong> Promote `SRV02` as an additional DNS-enabled domain controller and Global Catalog. Verify DC discovery, SYSVOL, DNS, and replication health.</label></li>
+<li><label class="completion"><input id="task02" type="checkbox" data-persist> <strong>2. FSMO:</strong> Transfer the RID Master role to `SRV02`. Verify the final owner independently.</label></li>
+<li><label class="completion"><input id="task03" type="checkbox" data-persist> <strong>3. Functional levels:</strong> Confirm compatibility, raise the domain and forest to the prepared supported target, and verify both modes.</label></li>
+<li><label class="completion"><input id="task04" type="checkbox" data-persist> <strong>4. Topology:</strong> Create `Manchester-Site`, map `10.40.0.0/24`, move `SRV02` into the site, and verify all three relationships.</label></li>
+<li><label class="completion"><input id="task05" type="checkbox" data-persist> <strong>5. OU and delegation:</strong> Create `Northstar/Finance/Users` and `Northstar/Groups`. Delegate password reset for the Finance Users OU to `GG_Finance_Helpdesk`. Prove success in scope and denial outside scope.</label></li>
+<li><label class="completion"><input id="task06" type="checkbox" data-persist> <strong>6. User lifecycle:</strong> Create `mia.chen` in Finance Users with an interactive secure password, require change at next sign-in, perform a secure reset, and verify state without exposing either password.</label></li>
+<li><label class="completion"><input id="task07" type="checkbox" data-persist> <strong>7. Bulk and disabled accounts:</strong> Validate the prepared CSV, create only valid missing users, disable the contractor row, and produce created, skipped, invalid, and disabled counts.</label></li>
+<li><label class="completion"><input id="task08" type="checkbox" data-persist> <strong>8. Groups:</strong> Create `GG_Finance_Users`, reconcile membership to the scenario users, and add only the disposable `test.admin` account to Protected Users. Verify both memberships.</label></li>
+<li><label class="completion"><input id="task09" type="checkbox" data-persist> <strong>9. gMSA:</strong> Create `svcFinance`, allow only `GG_Finance_Servers` to retrieve its password, install it on the intended server, and prove the account test succeeds.</label></li>
+<li><label class="completion"><input id="task10" type="checkbox" data-persist> <strong>10. Recovery:</strong> Enable AD Recycle Bin, delete the disposable `restore.test` user, restore it, and verify its original OU and key attributes.</label></li>
+<li><label class="completion"><input id="task11" type="checkbox" data-persist> <strong>11. GPO creation:</strong> Create and link `Northstar - Workstation Baseline` to the prepared Workstations OU. Configure the supplied benign workstation setting and prove the client receives it.</label></li>
+<li><label class="completion"><input id="task12" type="checkbox" data-persist> <strong>12. GPO processing:</strong> Apply the scenario's security filter and link order so the Finance workstation gets the baseline but the excluded workstation does not. Verify both results with RSoP or `gpresult`.</label></li>
+<li><label class="completion"><input id="task13" type="checkbox" data-persist> <strong>13. Domain password policy:</strong> Set the supplied domain baseline values and verify the effective default domain policy independently.</label></li>
+<li><label class="completion"><input id="task14" type="checkbox" data-persist> <strong>14. Fine-grained policy:</strong> Create `Finance Privileged PSO` with the supplied stricter values, target `GG_Finance_Privileged`, and prove the resultant PSO for `test.admin`.</label></li>
+<li><label class="completion"><input id="task15" type="checkbox" data-persist> <strong>15. Audit and user rights:</strong> Through Group Policy, enable the supplied account-management audit subcategory and restrict service logon to the supplied service group. Generate one labelled audit event and prove one permitted and one denied logon result.</label></li>
+</ol></section>
+<section class="card warning"><h2>At time</h2><p>Stop making changes. Copy <a href="submission-template.md">the submission template</a> into a new learning record, score each task against the rubric, record help used, and restore the clean snapshot after evidence is collected.</p></section>
+<nav class="lesson-nav"><a href="../lessons/0007-assessment-readiness.html">Readiness lesson</a><a class="button" href="scoring-rubric.md">Scoring rubric</a></nav>
+</article></main></body></html>
+
