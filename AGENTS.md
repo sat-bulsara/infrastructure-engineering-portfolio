@@ -23,6 +23,29 @@ Install it on a new computer with the matching script in `.codex/`, then
 restart Codex. The repository guidance remains the fallback if the skill is not
 installed.
 
+## Documentation voice
+
+When creating or improving READMEs, lab write-ups and supporting documentation:
+
+- Keep the writing human, direct and specific to the work Sat actually did.
+- Preserve Sat's natural voice instead of replacing it with generic corporate
+  or AI-style portfolio language.
+- Explain what was built, why decisions were made, what went wrong, how it was
+  verified and what was learned.
+- Prefer concrete actions, observations and evidence over inflated adjectives.
+- Use first-person language where it helps distinguish Sat's work and judgement,
+  but do not begin every paragraph with "I".
+- Vary sentence length naturally and use short paragraphs for readability.
+- Avoid repetitive summaries, excessive headings and checklist-style prose when
+  a short explanation would read better.
+- Do not use phrases such as "leveraged", "robust solution", "seamlessly",
+  "cutting-edge" or "production-ready" unless the evidence genuinely supports
+  them.
+- Use UK English and do not use em dashes. Use commas, colons or standard
+  hyphens instead.
+- Keep technical accuracy, security limitations and unresolved findings clear.
+  Humanising the writing must never mean weakening or hiding the evidence.
+
 ## Stateful Azure and AZ-104 tutoring
 
 When the user asks to learn Azure, continue AZ-104, practise, check an answer,
