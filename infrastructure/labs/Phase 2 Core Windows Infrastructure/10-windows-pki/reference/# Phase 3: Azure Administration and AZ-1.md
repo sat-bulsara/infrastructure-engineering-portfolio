@@ -409,20 +409,6 @@ Deploy Blob Storage and Azure Files with appropriate resilience, data protection
 - [ ] Explain when to use an access key, SAS, stored access policy, or Microsoft Entra identity.
 - [ ] Complete the [Secure storage for Azure Files and Azure Blob Storage](https://learn.microsoft.com/en-us/credentials/applied-skills/secure-storage-azure-files-azure-blob-storage/) learning path or assessment when ready.
 
-
-### Applied Project: Private Azure Storage and Network Access
-
-**Goal:** Prove that Azure Storage can be accessed privately from an approved Azure workload while public access is blocked.
-
-- [ ] Use separate workload and private-endpoint subnets.
-- [ ] Disable public network access on the storage account.
-- [ ] Configure a private endpoint and the required private DNS integration.
-- [ ] Test storage access from an approved workload inside the VNet.
-- [ ] Confirm access from an unapproved/public path fails.
-- [ ] Verify the effective DNS, firewall, RBAC, and endpoint configuration.
-- [ ] Inject one hidden storage/network/DNS fault and troubleshoot it from evidence.
-- [ ] Document the packet/access path and why the design reduces exposure.
-
 ## Build 16: Azure Virtual Machines and Resilience
 
 ### Outcome
@@ -480,21 +466,6 @@ Deploy, secure, resize, move, and recover Windows and Linux virtual machines.
 - [ ] Publish a VM diagram, configuration table, security decisions, and cost note.
 - [ ] Explain availability sets compared with zones and a single VM compared with a scale set.
 - [ ] Restore VM access without opening unrestricted RDP or SSH to the internet.
-
-
-### Applied Project: Secure Azure VM and Governance
-
-**Goal:** Deploy a secure Azure VM and apply identity, governance, policy, and cost controls around the workload.
-
-- [ ] Deploy a Windows or Linux VM using the smallest suitable SKU.
-- [ ] Assign least-privilege RBAC at the narrowest practical scope.
-- [ ] Create or adapt a custom role for a tightly scoped administrative scenario.
-- [ ] Apply required workload tags and enforce them with Azure Policy.
-- [ ] Configure an appropriate disk/encryption control supported by the lab.
-- [ ] Configure a workload-specific budget or cost alert.
-- [ ] Test an allowed and denied administrative action with a non-owner identity.
-- [ ] Inject one hidden RBAC, policy, cost, or VM configuration fault and troubleshoot it.
-- [ ] Document the security, governance, and cost decisions.
 
 ## Build 17: ARM Templates and Bicep
 
@@ -599,21 +570,6 @@ Deploy and operate platform-hosted web applications and container workloads.
 - [ ] Publish an App Service and container comparison with evidence from both deployments.
 - [ ] Explain when a VM, App Service, ACI, or Container Apps solution is appropriate.
 - [ ] Clean up continuously billed compute resources.
-
-
-### Applied Project: App Service Production Operations
-
-**Goal:** Operate an App Service workload using deployment, scaling, monitoring, and rollback practices rather than only deploying the service.
-
-- [ ] Deploy a simple application to a staging slot.
-- [ ] Configure production and staging settings and identify which settings are slot-specific.
-- [ ] Validate the staging deployment before release.
-- [ ] Perform a controlled slot swap.
-- [ ] Configure autoscaling using a metric or schedule appropriate to the scenario.
-- [ ] Configure monitoring and a safe alert for the workload.
-- [ ] Test rollback by swapping back or restoring the previous known-good configuration.
-- [ ] Inject one hidden deployment, configuration, scaling, or health fault and troubleshoot it from logs and configuration evidence.
-- [ ] Document the deployment flow and zero-downtime/rollback considerations.
 
 ## Build 19: Load Balancing and Network Troubleshooting
 
@@ -774,22 +730,6 @@ Protect Azure workloads, restore lost data, and test regional recovery.
 - [ ] Publish a recovery runbook with actual restore evidence.
 - [ ] Explain recovery point objective, recovery time objective, backup, and Site Recovery.
 - [ ] Clean up replicated and restored resources to control cost.
-
-
-### Applied Project: Azure Monitoring, Backup, and Recovery
-
-**Goal:** Combine monitoring and recovery into one operational scenario for an existing Azure workload.
-
-- [ ] Select an existing VM or application workload from earlier builds.
-- [ ] Configure both a metric alert and a log-query alert and explain when each is appropriate.
-- [ ] Connect the workload to Log Analytics and confirm required telemetry is arriving.
-- [ ] Write at least one KQL query that surfaces an operational condition.
-- [ ] Protect the workload with an appropriate Azure Backup policy.
-- [ ] Create or verify a recovery point.
-- [ ] Perform a controlled restore test.
-- [ ] Trigger a safe monitoring condition and confirm the alert path.
-- [ ] Inject one hidden monitoring, backup, or recovery fault and troubleshoot it.
-- [ ] Produce a short operational runbook covering alert, investigation, recovery, verification, and escalation.
 
 ## Build 22: Integrated Azure Administrator Capstone
 

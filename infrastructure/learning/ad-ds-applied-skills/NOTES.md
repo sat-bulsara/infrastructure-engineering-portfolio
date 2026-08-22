@@ -11,6 +11,9 @@
   curve.
 - Use retrieval, repetition, and fresh variations instead of treating a single
   successful run as mastery.
+- Track every first-attempt quiz miss and carry recurring weak points into a
+  final remediation quiz. Give the correction briefly, but defer fresh retry
+  variations until the end so the main module keeps moving.
 - Link to the exact official Microsoft page used for each new concept.
 - Keep the Microsoft Learn page and the local companion open side by side.
 - Tell Sat exactly when a screenshot is useful and what it must prove.

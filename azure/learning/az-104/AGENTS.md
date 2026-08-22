@@ -124,6 +124,69 @@ new knowledge to existing experience.
 - Use report-only or test identities for identity policies when possible.
 - Require cleanup evidence for chargeable resources.
 
+## Evidence capture and publication gate
+
+Plan the evidence before changing Azure. Do not wait until the README is being
+written to discover that a central result was not retained.
+
+For each meaningful lab stage, identify:
+
+1. Implementation evidence showing what was configured.
+2. Independent read-only verification showing the effective state.
+3. Break/fix evidence showing the symptom, investigation and retest.
+4. Cost and cleanup evidence showing what remains and what was removed.
+
+Before deleting resources or local Terraform state:
+
+- capture a sanitised final configuration check;
+- save the reviewed destroy plan summary where appropriate;
+- verify the intended Azure resources are absent with narrow existence queries;
+- record an empty Terraform state list before removing local state; and
+- record anything intentionally retained, including budgets, logs or shared
+  infrastructure.
+
+If evidence was missed, do not recreate unsafe or chargeable state merely for a
+screenshot. Re-query the live final state when safe, otherwise label the result
+as performed but not retained as independent evidence.
+
+Use no more than five embedded screenshots in a portfolio README unless the
+learner asks for a different limit. Select images that prove distinct central
+outcomes. Other useful public-safe evidence may be linked from an evidence index.
+
+Before publication:
+
+- inspect every image in the folder, including images not embedded in the README;
+- crop to the relevant pane and remove browser tabs and unrelated resources;
+- exclude account addresses, tenant IDs, subscription IDs, object IDs, device
+  codes, tokens and other unnecessary identifiers;
+- give retained images descriptive numbered kebab-case names;
+- remove or privately retain unsafe raw captures rather than committing them;
+- scan text and code for credentials and identifiers;
+- verify Markdown links, image paths, Terraform formatting and validation; and
+- inspect Git status and the staged diff before commit.
+
+A subscription or tenant ID is not normally an authentication secret by itself,
+but it is unnecessary public metadata and must still be excluded from this
+portfolio.
+
+## Troubleshooting evidence standard
+
+Write troubleshooting in this order:
+
+1. Observed symptom
+2. Evidence collected
+3. Current hypothesis
+4. Controlled change
+5. Independent retest
+6. Confirmed cause, only when the evidence establishes it
+7. Prevention or operational lesson
+
+Do not turn correlation into a confirmed root cause. If a later attempt succeeds
+after a configuration change but logs do not establish causation, describe the
+change as a likely contributing factor or a successful workaround. Preserve the
+difference between what was performed, what was observed and what the retained
+evidence proves.
+
 ## Progress rules
 
 - A checkbox or file is not proof of mastery.
