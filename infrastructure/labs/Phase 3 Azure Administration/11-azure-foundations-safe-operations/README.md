@@ -18,9 +18,10 @@ This does not demonstrate independent fluency yet. The retained evidence proves
 the main configuration, lock enforcement and Terraform apply, but it does not
 independently prove the budget notification threshold or final Azure absence.
 
-The lab is not ready for publication yet. One raw portal screenshot contains
-account and subscription metadata, and the final public evidence set still needs
-safe crops and descriptive names.
+The five embedded screenshots are public-safe and use descriptive names. The lab
+is not ready for publication yet because one unembedded raw portal screenshot
+contains account and subscription metadata, and final Azure absence was not
+retained as public evidence.
 
 ## Lab Scope
 
@@ -73,10 +74,14 @@ The Azure CLI context check showed the intended subscription as enabled and
 default. Read-only queries returned the group in `uksouth`, provisioning state
 `Succeeded`, all four expected tags and lock level `CanNotDelete`.
 
+![Azure CLI output confirming the resource group state, four tags and CanNotDelete lock](screenshots/05-azure-cli-resource-group-lock-verification.png)
+
 Azure PowerShell returned the same resource-group state and tags. The lock
 object stored the useful level and notes values under `Properties`, so the final
 query selected those nested fields explicitly. The retained PowerShell output
 supports the group, tag and lock claims without exposing the subscription ID.
+
+![Azure PowerShell output confirming the CanNotDelete lock and its notes](screenshots/06-azure-powershell-lock-verification.png)
 
 The performed commands are recorded in
 [reference/code-snippets.md](reference/code-snippets.md).
@@ -92,6 +97,8 @@ The retained plan and configuration contained exactly two additions:
 
 1. `azurerm_resource_group.foundations`
 2. `azurerm_management_lock.prevent_delete`
+
+![Terraform plan showing the resource group and CanNotDelete management lock to be created](screenshots/07-terraform-plan-resource-group-lock.png)
 
 After apply, Azure CLI independently confirmed the group, tags and lock. The
 configuration is retained in [terraform/](terraform/), including the provider
@@ -210,10 +217,10 @@ delayed recall and transfer into later builds remain to be demonstrated.
 
 - Remove or privately retain the raw full-portal screenshot containing account
   and subscription metadata.
-- Select no more than five screenshots that prove distinct central outcomes.
-- Crop the retained images to the relevant portal pane or terminal output.
-- Rename them with descriptive numbered kebab-case filenames and update the
-  Markdown paths.
+- Keep the current five embedded screenshots focused on distinct central
+  outcomes.
+- Remove or privately retain unused raw screenshots after checking them for
+  account details and unrelated content.
 - Capture fresh sanitised `az group exists` output for both deleted groups when
   possible.
 - Treat the 50 per cent budget threshold and empty Terraform state as performed
