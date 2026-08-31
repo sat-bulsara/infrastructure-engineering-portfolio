@@ -41,13 +41,14 @@ document a small Azure environment using appropriate Azure services and tools.
 
 ## Completion Evidence
 
-- [ ] Complete Builds 11-22 in the progressive Azure roadmap with verification.
+- [ ] Complete Projects 11-32 in the progressive Azure roadmap with verification.
 - [ ] Explain the major cloud and Azure design decisions in the learner's own words.
 - [ ] Rebuild and repair core services without exact step-by-step instructions.
 - [ ] Demonstrate useful PowerShell, Azure CLI, Bicep, Terraform, and Python work.
-- [ ] Complete an integrated capstone with security, monitoring, recovery, cost,
+- [ ] Complete the governed administration capstone with security, monitoring, recovery, cost,
       troubleshooting, and cleanup evidence.
 - [ ] Reach the AZ-104 readiness gate only when confidence and evidence support it.
-- [ ] Complete the numbered portfolio projects progressively after the core is stable.
+- [ ] Complete Projects 33-39 progressively to deepen enterprise identity,
+      platform engineering, networking and incident-recovery capability.
 - [ ] Complete post-project Microsoft Learn consolidation and repair any gaps it exposes.
 - [ ] Demonstrate delayed recall and independent transfer of important skills in changed scenarios.

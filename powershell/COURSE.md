@@ -31,16 +31,21 @@ Useful tutor prompts:
 
 ## Learning Path
 
-| Level | Project | Main skills | Portfolio output |
-| --- | --- | --- | --- |
-| 0 | 01 Command Discovery | Help, commands, objects | Environment report |
-| 1 | 02 System Inventory | Pipeline, filtering, export | Inventory tool |
-| 2 | 03 Health Checker | Variables, logic, loops | Health report |
-| 3 | 04 Function Toolkit | Functions, parameters, validation | Reusable functions |
-| 4 | 05 Log Analyzer | Files, CSV/JSON, errors | Log analysis tool |
-| 5 | 06 Network Diagnostics | DNS, ports, structured results | Network tester |
-| 6 | 07 Identity Simulator | AD-style data and safe lifecycle logic | Joiner/leaver simulator |
-| 7 | 08 Enterprise Module | Modules, logging, testing, documentation | Capstone module |
+The canonical [24-project curriculum](learning/CURRICULUM.md) is divided into
+six four-project phases:
+
+| Phase | Projects | Main outcome |
+| --- | --- | --- |
+| A | 01-04 | Language, objects, pipeline, logic and functions |
+| B | 05-08 | Reliable data, diagnostics and module foundations |
+| C | 09-12 | Windows client and server operations |
+| D | 13-16 | Active Directory, JML, Group Policy and DNS |
+| E | 17-20 | Azure, Microsoft Graph and Microsoft 365 |
+| F | 21-24 | Secure, tested and production-quality automation |
+
+Every project repeats earlier skills, includes a changed scenario and
+controlled failure, and ends with a practical quiz. Every fourth project is
+followed by a cumulative phase gate.
 
 ## Completion Standard
 
@@ -52,5 +57,9 @@ For every project, you must be able to:
 - Produce structured objects, not presentation-only strings.
 - Include help, examples and a README.
 - Pass the project's acceptance checks.
+- Complete the no-notes exit quiz and repair every missed item.
+- Reuse earlier skills with less support.
 
-Projects 1-6 work offline. Project 7 uses local mock data so no domain is required. Project 8 combines the earlier work; live Azure, Graph, Exchange and AD adapters can be added later in disposable labs.
+Projects 01-08 begin offline or with safe local data. Windows, AD and cloud
+projects use mock adapters before an authorised disposable lab or practice
+tenant.

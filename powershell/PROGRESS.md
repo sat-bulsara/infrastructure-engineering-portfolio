@@ -1,5 +1,9 @@
 # PowerShell Progress Log
 
+The canonical tutor state now lives in
+[learning/PROGRESS.md](learning/PROGRESS.md). This original checklist is kept as
+historical build planning and should not be used to choose the next exercise.
+
 Update this file at the end of every session. Keep entries short and specific.
 
 | Date | Build / Session | Completed | What I learned | Next action |

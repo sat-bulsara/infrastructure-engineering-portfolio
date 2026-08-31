@@ -5,23 +5,19 @@
 When the user asks to learn, practise, continue, check, or receive the next
 PowerShell exercise:
 
-1. Use this course root:
-   `infrastructure/labs/Phase 1 Windows Infrastructure/learning/`
-2. Read the nested `AGENTS.md` in that directory before teaching or editing.
-3. Read the saved course state and current workbook instead of relying on chat
-   history.
-4. Keep infrastructure work outside that course governed by its own project
-   requirements.
+1. Use `powershell/learning/` as the canonical language course.
+2. Read `powershell/AGENTS.md` and the nested course `AGENTS.md`.
+3. Read the saved mission, curriculum, notes, progress, resources, recent
+   learning records and current exercise or project.
+4. Store numbered project evidence under `powershell/projects/`.
+5. When the active work belongs to a specific infrastructure lab, also read
+   that lab's local guidance and saved learning state.
 
 The course files are the portable source of truth across computers and Codex
 chats.
 
-The portable source for the reusable tutor skill is:
-`.codex/skills/learn-anything/`.
-
-Install it on a new computer with the matching script in `.codex/`, then
-restart Codex. The repository guidance remains the fallback if the skill is not
-installed.
+The reusable local tutor skill is `powershell-infrastructure-tutor`. Repository
+guidance remains the portable fallback when the skill is not installed.
 
 ## Documentation voice
 
@@ -57,6 +53,34 @@ or receive the next Azure exercise:
 3. Read the saved mission, curriculum, notes, progress, resources, recent
    learning records, and current exercise instead of relying on chat history.
 4. Use `azure/assets/azure-roadmap.md` as the progressive project path.
+5. Treat the saved files as the portable source of truth across computers and
+   Codex tasks.
+
+## Stateful Python tutoring
+
+When the user asks to learn Python, continue the Python course, practise, check
+code, debug an exercise, or receive the next Python project task:
+
+1. Use this course root: `python/learning/`.
+2. Read `python/AGENTS.md` and the nested course `AGENTS.md` before teaching or
+   editing.
+3. Read the saved mission, curriculum, notes, progress, resources, recent
+   learning records, and current exercise or project.
+4. Store numbered project evidence under `python/projects/`.
+5. Treat the saved files as the portable source of truth across computers and
+   Codex tasks.
+
+## Stateful Linux tutoring
+
+When the user asks to learn Linux, continue the Linux course, practise, check a
+command, diagnose a lab, or receive the next Linux project task:
+
+1. Use this course root: `linux/learning/`.
+2. Read `linux/AGENTS.md` and the nested course `AGENTS.md` before teaching or
+   editing.
+3. Read the saved mission, curriculum, notes, progress, resources, recent
+   learning records, and current exercise or project.
+4. Store numbered project evidence under `linux/projects/`.
 5. Treat the saved files as the portable source of truth across computers and
    Codex tasks.
 

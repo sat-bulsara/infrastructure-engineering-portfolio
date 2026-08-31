@@ -31,12 +31,12 @@ Build and administer the core Windows infrastructure services found in enterpris
 
 Phase 2:
 
-- Build 5 — Group Policy
-- Build 6 — Enterprise File Services
-- Build 7 — DHCP Infrastructure
-- Build 8 — Enterprise DNS
-- Build 9 — Windows PKI
-- Build 10 — Hyper-V
+- Build 6 — Group Policy
+- Build 7 — Enterprise File Services
+- Build 8 — DHCP Infrastructure
+- Build 9 — Enterprise DNS
+- Build 10 — Windows PKI
+- Build 11 — Hyper-V
 
 Supplemental:
 
@@ -645,7 +645,7 @@ Document/GitHub:
 - PKI Diagram
 - PowerShell
 
-## Build 10 — Hyper-V
+## Build 11 — Hyper-V
 
 Learn:
 - Hyper-V

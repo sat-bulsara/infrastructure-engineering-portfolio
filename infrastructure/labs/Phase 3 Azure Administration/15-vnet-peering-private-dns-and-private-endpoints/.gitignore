@@ -1,0 +1,5 @@
+.DS_Store
+screenshots/private-raw/
+terraform/.terraform/
+terraform/*.tfplan
+terraform/terraform.tfstate*

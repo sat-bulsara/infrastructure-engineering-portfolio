@@ -1,0 +1,16 @@
+{
+    "allowedLocations": {
+        "type": "Array",
+        "metadata": {
+            "displayName": "Allowed locations",
+            "description": "Locations approved for resources governed by this initiative."
+        }
+    },
+    "requiredTagName": {
+        "type": "String",
+        "metadata": {
+            "displayName": "Required tag name",
+            "description": "Tag that governed resources must contain."
+        }
+    }
+}

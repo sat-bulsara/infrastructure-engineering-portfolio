@@ -43,6 +43,13 @@ Examples:
 Only create the next mini-lab when it is due. Avoid filling the folder with long
 unused worksheets.
 
+The full six-month bank is mapped in
+[`../../../assets/azure-roadmap.md`](../../../assets/azure-roadmap.md#six-month-mini-lab-track).
+It contains short repetitions tied to Projects 11-31 across identity, governance,
+networking, storage, compute, Bicep, Terraform, applications, containers,
+monitoring, security and recovery. `PROGRESS.md` determines which one is due;
+the roadmap list is a bank, not a requirement to complete every item mechanically.
+
 ## Completion Rule
 
 Record the result in `../PROGRESS.md`, including the evidence, help used, and next

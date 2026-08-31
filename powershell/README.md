@@ -18,34 +18,36 @@ The labs are designed for short, offline sessions on a spare Windows laptop. Sta
 
 Do not open the solutions until you have attempted a challenge and written down the error you observed.
 
-## Zero-to-Hero Projects
+## Project-Based Tutor
 
-Use [COURSE.md](COURSE.md) as the main learning path. It takes you from your first commands to a reusable enterprise administration module through eight portfolio projects. Begin with `projects/01-command-discovery` and do not skip the acceptance checks.
+Use the [PowerShell Infrastructure Tutor](learning/README.md) as the main
+learning path. It contains 24 progressive coding projects, repeated practice,
+project quizzes and cumulative phase gates.
+
+The first eight project folders already contain starter files. Later project
+folders are created as their prerequisites become current.
 
 ## Curriculum
 
-| Build | Topic | Status |
+| Phase | Projects | Outcome | Status |
 | --- | --- | --- |
-| 01 | PowerShell Foundations | Ready |
-| 02 | Objects and Pipeline | Planned |
-| 03 | Variables and Logic | Planned |
-| 04 | Functions | Planned |
-| 05 | Files and Logging | Planned |
-| 06 | Windows Administration | Planned |
-| 07 | Active Directory | Planned |
-| 08 | Networking | Planned |
-| 09 | Azure | Planned |
-| 10 | Microsoft Graph | Planned |
-| 11 | Exchange and Microsoft 365 | Planned |
-| 12 | Production Automation | Planned |
+| A | 01-04 | Language and object foundations | Current |
+| B | 05-08 | Reliable support automation | Planned |
+| C | 09-12 | Windows operations | Planned |
+| D | 13-16 | Active Directory infrastructure | Planned |
+| E | 17-20 | Azure and Microsoft 365 | Planned |
+| F | 21-24 | Production-quality automation | Planned |
 
 ## Repository Layout
 
 ```text
 powershell/
 |-- labs/       # Guided exercises and break/fix challenges
+|-- learning/   # Persistent tutor state, curriculum and quizzes
+|-- projects/   # Numbered coding projects and evidence
+|-- practice/   # Short editable drills
 |-- scripts/    # Reusable scripts produced by the labs
 |-- docs/       # Notes and supporting documentation
 |-- assets/     # Screenshots and diagrams
-`-- PROGRESS.md # Personal learning log
+`-- COURSE.md   # Course working agreement
 ```

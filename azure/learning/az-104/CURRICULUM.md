@@ -2,18 +2,20 @@
 
 The detailed checklist is in the [progressive Azure roadmap](../../assets/azure-roadmap.md).
 
-| Stage | Builds | Real-world outcome | Evidence | Status |
+| Stage | Projects | Real-world outcome | Evidence | Status |
 | --- | --- | --- | --- | --- |
 | A: Platform control | 11-13 | Operate Azure safely and govern identity, access, scope, policy, and cost | Context checks, RBAC tests, policy compliance, budget and landing-zone documentation | Current |
-| B: Core infrastructure | 14-16 | Build and repair secure networking, storage, and virtual machines | Diagrams, access tests, recovery tests, break/fix records, automation | Pending |
-| C: Deployment and applications | 17-18 | Use native infrastructure as code and operate PaaS and containers | ARM/Bicep changes, App Service and container evidence, Terraform comparison | Pending |
-| D: Operations and resilience | 19-21 | Diagnose traffic, monitor resources, alert, back up, and recover workloads | Packet path, KQL, alerts, restores, failover and troubleshooting evidence | Pending |
-| E: Integrated environment | 22 | Build and operate a coherent Azure environment with decreasing help | Capstone, Bicep, Terraform, Python operations tool and verbal explanation | Pending |
-| F: Numbered portfolio projects | 1-5 | Deepen identity, secrets, Terraform, images, and hybrid networking | Independent, security-first portfolio projects | Pending |
-| G: Microsoft consolidation | Official paths and Applied Skills | Connect formal Microsoft material to practical experience and expose gaps | Module checks, Applied Skills and targeted repair drills | Pending |
-| H: Certification readiness | Review | Use AZ-104 as an optional confidence and coverage checkpoint | Objective mapping, weak-area repairs and timed practice | Future |
+| B: Core networking and compute | 14-18 | Build and repair segmented networks, private access, storage, Linux and Windows compute | Diagrams, traffic tests, recovery tests, break/fix records and automation | Pending |
+| C: Code and application platforms | 19-22 | Use Bicep and Terraform and operate PaaS and container workloads | What-if and plan reviews, state and drift evidence, deployments and rollback | Pending |
+| D: Advanced networking, security and operations | 23-30 | Deliver application traffic, hybrid connectivity, security monitoring and recovery | Packet paths, WAF and routing evidence, Defender remediation, Sentinel investigation, KQL, alerts and restores | Pending |
+| E: Administrator integration | 31 | Integrate the current AZ-104 domains through changed operational scenarios | Independent tickets, mixed faults, objective mapping and repair mini-labs | Pending |
+| F: Core administration capstone | 32 | Build and operate a coherent governed environment with decreasing help | Independent design, implementation, break/fix, recovery and explanation | Pending |
+| G: Enterprise security and platform projects | 33-37 | Deepen identity, secrets, Terraform delivery, Kubernetes operations and secure compute images | Independent security-first project evidence | Pending |
+| H: Advanced capstones | 38-39 | Integrate secure platforms and operate a hybrid-style incident | Architecture, controlled delivery, diagnosis, recovery and root-cause evidence | Pending |
+| I: Microsoft consolidation | Official paths and Applied Skills | Connect formal Microsoft material to practical experience and expose gaps | Module checks, Applied Skills and targeted repair drills | Pending |
+| J: Certification readiness | Review | Use AZ-104 as an optional confidence and coverage checkpoint | Objective mapping, weak-area repairs and timed practice | Future |
 
-## Build Learning Pattern
+## Project Learning Pattern
 
 | Project task | Learn first | Practice | Project evidence |
 | --- | --- | --- | --- |
@@ -42,6 +44,31 @@ Suggested spacing is the next session, about one week, and about one month. The
 companion changes these intervals according to demonstrated recall and help used.
 Mini-labs are stored under [`practice/`](practice/README.md), while larger guided
 service labs remain under `azure/practice/`.
+
+## Command-Line Fluency Spine
+
+Azure projects also develop five connected but distinct operational skills.
+They are practised inside real builds and through short changed drills rather
+than as one long block of disconnected syntax.
+
+| Strand | Core fluency | Project application |
+| --- | --- | --- |
+| Azure CLI | Discover command groups, use help, manage context, query JSON, select output formats and perform safe Azure administration | Inspect and verify every suitable Azure build, then automate selected changes |
+| Bash | Navigate, quote safely, use variables, command substitution, conditions, loops, functions, pipes, redirection and exit status | Compose repeatable Azure CLI workflows and Linux operational checks |
+| Linux | Work confidently with paths, files, permissions, processes, packages, environment variables, logs, networking and SSH | Operate Linux hosts and troubleshoot the local/cloud command environment |
+| PowerShell | Use objects, the pipeline, properties, filtering, variables, collections, functions, modules, errors and safe change controls | Query and administer Azure with Az modules and build reusable operational scripts |
+| Terraform | Read HCL, understand providers and resources, plan safely, manage variables and outputs, inspect state, detect drift, refactor and build reusable modules | Recreate understood Azure designs declaratively and compare desired state with the live environment |
+
+Each skill moves through the same evidence ladder:
+
+```text
+read and explain -> predict -> complete a gap -> build from a goal ->
+debug a fault -> write a reusable script -> transfer to a later project
+```
+
+Copying a working command counts as guided exposure, not fluency. Fluency needs
+correct construction, explanation, verification and troubleshooting with little
+or no help.
 
 ## External Learning Integration
 

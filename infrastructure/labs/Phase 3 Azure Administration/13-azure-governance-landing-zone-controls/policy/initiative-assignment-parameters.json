@@ -1,0 +1,11 @@
+{
+    "allowedLocations": {
+        "value": [
+            "uksouth",
+            "ukwest"
+        ]
+    },
+    "requiredTagName": {
+        "value": "environment"
+    }
+}

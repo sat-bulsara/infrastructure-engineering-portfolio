@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Hyper-V learning lab architecture</title>
+  <desc id="description">SRV01 connects to the physical network through an external switch and hosts an isolated internal network for the DC01 Windows Server virtual machine.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071425"/>
+      <stop offset="1" stop-color="#102b4f"/>
+    </linearGradient>
+    <linearGradient id="host" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#122a49"/>
+      <stop offset="1" stop-color="#0c1d34"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#79b8ff"/>
+    </marker>
+    <style>
+      .title { font: 700 38px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .subtitle { font: 400 18px "Segoe UI", Arial, sans-serif; fill: #a9c5e8; }
+      .heading { font: 700 20px "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .small { font: 400 14px "Segoe UI", Arial, sans-serif; fill: #a9c5e8; }
+      .note { font: 600 14px "Segoe UI", Arial, sans-serif; fill: #ffd37a; }
+      .line { stroke: #79b8ff; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6381a6; stroke-width: 3; stroke-dasharray: 8 8; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <circle cx="1110" cy="70" r="160" fill="#2979d6" opacity="0.12"/>
+  <circle cx="85" cy="625" r="180" fill="#27b7a9" opacity="0.08"/>
+
+  <text x="60" y="70" class="title">Hyper-V Virtualisation Lab</text>
+  <text x="60" y="103" class="subtitle">Build 11: isolated Windows Server guest on a multi-role learning host</text>
+
+  <rect x="210" y="135" width="930" height="465" rx="26" fill="url(#host)" stroke="#4d7fb8" stroke-width="2"/>
+  <text x="245" y="178" class="heading">SRV01: Windows Server 2025 Hyper-V host</text>
+  <text x="245" y="204" class="small">Physical LAN: 192.168.1.250/24 | Approximately 16 GB RAM | 3.7 TB NTFS</text>
+
+  <rect x="30" y="255" width="145" height="105" rx="16" fill="#18385d" stroke="#79b8ff" stroke-width="2"/>
+  <text x="55" y="292" class="heading">Home LAN</text>
+  <text x="51" y="320" class="small">192.168.1.0/24</text>
+  <text x="48" y="343" class="small">GW 192.168.1.254</text>
+
+  <rect x="255" y="240" width="235" height="105" rx="16" fill="#17456c" stroke="#79b8ff" stroke-width="2"/>
+  <text x="280" y="277" class="heading">External switch</text>
+  <text x="280" y="306" class="small">HV-LAB-EXTERNAL</text>
+  <text x="280" y="329" class="small">Management OS shared</text>
+  <path d="M175 307 L250 307" class="line"/>
+
+  <rect x="520" y="240" width="235" height="105" rx="16" fill="#11605f" stroke="#69dbd0" stroke-width="2"/>
+  <text x="548" y="277" class="heading">Internal switch</text>
+  <text x="548" y="306" class="small">HV-LAB-INTERNAL</text>
+  <text x="548" y="329" class="small">Host: 10.10.10.1/24</text>
+
+  <rect x="785" y="240" width="235" height="105" rx="16" fill="#263d5b" stroke="#6f8eaf" stroke-width="2"/>
+  <text x="824" y="277" class="heading">Private switch</text>
+  <text x="813" y="306" class="small">HV-LAB-PRIVATE</text>
+  <text x="811" y="329" class="small">VM-to-VM only</text>
+
+  <rect x="265" y="395" width="225" height="145" rx="16" fill="#16243a" stroke="#526f93" stroke-width="2"/>
+  <text x="292" y="430" class="heading">Existing host roles</text>
+  <text x="292" y="462" class="small">AD DS, DNS and DHCP</text>
+  <text x="292" y="486" class="small">File services</text>
+  <text x="292" y="510" class="small">AD CS certificate authority</text>
+  <text x="292" y="532" class="note">Learning-lab limitation</text>
+
+  <rect x="575" y="395" width="385" height="150" rx="20" fill="#e8f2ff" stroke="#79b8ff" stroke-width="3"/>
+  <text x="610" y="431" style="font:700 22px 'Segoe UI',Arial,sans-serif;fill:#0c284b">DC01 virtual machine</text>
+  <text x="610" y="462" style="font:600 16px 'Segoe UI',Arial,sans-serif;fill:#24466c">Windows Server 2025 | Generation 2</text>
+  <text x="610" y="488" style="font:400 15px 'Segoe UI',Arial,sans-serif;fill:#35597d">10.10.10.10/24 | No gateway or NAT</text>
+  <text x="610" y="513" style="font:400 15px 'Segoe UI',Arial,sans-serif;fill:#35597d">4 GB startup | 80 GB dynamic VHDX</text>
+  <text x="610" y="536" style="font:600 14px 'Segoe UI',Arial,sans-serif;fill:#a05f00">Secure Boot final state: verify</text>
+  <path d="M638 345 L720 390" class="line"/>
+
+  <path d="M902 345 L902 380" class="dash"/>
+  <text x="955" y="373" class="small">Not used by DC01</text>
+
+  <text x="60" y="638" class="subtitle">Isolation boundary: the Internal switch alone does not provide DHCP, routing or Internet access.</text>
+</svg>
