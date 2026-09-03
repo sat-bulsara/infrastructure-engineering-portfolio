@@ -48,7 +48,10 @@ document a small Azure environment using appropriate Azure services and tools.
 - [ ] Complete the governed administration capstone with security, monitoring, recovery, cost,
       troubleshooting, and cleanup evidence.
 - [ ] Reach the AZ-104 readiness gate only when confidence and evidence support it.
-- [ ] Complete Projects 33-39 progressively to deepen enterprise identity,
+- [ ] Complete Projects 33-41 progressively to deepen enterprise identity,
+      Terraform engineering, secure delivery, software-supply-chain security,
       platform engineering, networking and incident-recovery capability.
+- [ ] Complete optional Project 42 when Azure AI platform security supports the
+      learner's role direction without displacing core Azure operations.
 - [ ] Complete post-project Microsoft Learn consolidation and repair any gaps it exposes.
 - [ ] Demonstrate delayed recall and independent transfer of important skills in changed scenarios.

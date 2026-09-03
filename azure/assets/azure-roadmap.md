@@ -4,7 +4,13 @@
 
 This is one chronological project sequence. There are no separate extension projects. Each project builds on earlier work and deliberately repeats important administration tasks with fewer hints.
 
-Projects 11 to 32 cover the core Azure administration journey and repeatedly apply the practical skills associated with AZ-104. Projects 33 to 39 extend that foundation into enterprise identity, security operations, platform engineering, Kubernetes and larger capstones. Public documentation should describe the engineering work, not present projects as exam exercises.
+Every numbered project uses a mandatory security gate: identify the identities
+and data involved, draw the trust and network boundaries, minimise public
+exposure and permissions, protect secrets, define useful detection and
+recovery evidence, assess blast radius and verify safe cleanup. A project is
+not complete merely because its resources deployed successfully.
+
+Projects 11 to 32 cover the core Azure administration journey and repeatedly apply the practical skills associated with AZ-104. Projects 33 to 42 extend that foundation into enterprise identity, secure infrastructure delivery, software-supply-chain security, platform engineering, Kubernetes, AI security and larger capstones. Public documentation should describe the engineering work, not present projects as exam exercises.
 
 ## Project sequence
 
@@ -34,11 +40,14 @@ Projects 11 to 32 cover the core Azure administration journey and repeatedly app
 | 32 | Capstone 1: Governed Azure Administrator Environment | Integrated core administration | 24-35 hours | Independent with review |
 | 33 | Zero Trust Identity and JML | Advanced identity lifecycle and access | 14-20 hours | Independent |
 | 34 | Key Vault, Managed Identity and Secrets | Workload identity and secrets | 10-14 hours | Independent |
-| 35 | Secure Terraform Delivery Pipeline | Remote state and controlled delivery | 16-24 hours | Independent |
-| 36 | AKS Platform Operations, GitOps and Container Security | Kubernetes operations and secure delivery | 20-30 hours | Independent |
-| 37 | Golden Image and Compute Gallery Pipeline | Repeatable secure compute images | 16-24 hours | Independent |
-| 38 | Capstone 2: Secure Cloud Platform | Secure application platform delivery | 30-45 hours | Independent |
-| 39 | Capstone 3: Hybrid Operations and Incident Recovery | Hybrid faults, operations and recovery | 30-45 hours | Independent |
+| 35 | Enterprise Terraform Structure and State | Modules, environments, remote state and recovery | 12-18 hours | Independent |
+| 36 | Secure Terraform Delivery with GitHub Actions | OIDC, pull-request plans, approvals and pipeline operations | 14-20 hours | Independent |
+| 37 | GitHub Advanced Security and Software Supply Chain | Secret, code, dependency and IaC security gates | 12-18 hours | Independent |
+| 38 | AKS Platform Operations, GitOps and Container Security | Kubernetes operations and secure delivery | 20-30 hours | Independent |
+| 39 | Golden Image and Compute Gallery Pipeline | Repeatable secure compute images | 16-24 hours | Independent |
+| 40 | Capstone 2: Secure Cloud Platform | Secure application platform delivery | 30-45 hours | Independent |
+| 41 | Capstone 3: Hybrid Operations and Incident Recovery | Hybrid faults, operations and recovery | 30-45 hours | Independent |
+| 42 | Optional Secure Azure AI Platform | AI workload identity, exposure, monitoring and threat controls | 12-18 hours | Independent |
 
 Time estimates include prerequisite study, the practical build, command-line repetition, verification, one break/fix exercise, evidence capture and the first documentation pass. They are planning ranges, not deadlines. Repetition or troubleshooting can make a worthwhile project longer.
 
@@ -117,6 +126,7 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML18-02 | Project 18 disks | R3 | Add, initialise and verify a managed data disk | PowerShell | 40 min |
 | ML18-03 | Project 18 extensions | R4 | Diagnose a failed VM extension without recreating the VM | Portal, PowerShell | 35 min |
 | ML18-04 | Project 30 | R5 | Restore a changed Windows workload from backup | PowerShell | 45 min |
+| ML18-05 | Project 18 lifecycle | R3 | Assess updates, run a controlled maintenance window and prove post-patch health | Update Manager, PowerShell | 45 min |
 
 ### Infrastructure as code and deployment
 
@@ -130,6 +140,12 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML20-03 | Project 20 drift | R4 | Detect, explain and repair a controlled portal drift | Terraform | 40 min |
 | ML20-04 | Project 25 | R5 | Refactor repeated networking resources into a reusable module | Terraform | 45 min |
 | ML20-05 | Project 35 | R5 | Move state to a protected remote backend and use a review branch | Terraform, Git | 45 min |
+| ML35-01 | Project 35 state | R3 | Recover a locked or interrupted remote-state workflow without bypassing safety controls | Terraform, Azure Storage | 40 min |
+| ML36-01 | Project 36 pull request | R3 | Diagnose an OIDC or Azure-scope failure from GitHub Actions logs | GitHub Actions, Azure RBAC | 40 min |
+| ML36-02 | One week after Project 36 | R4 | Review a destructive Terraform plan and prevent an unsafe apply | GitHub, Terraform | 40 min |
+| ML37-00 | Start of Project 37 | R1 | Build a Gitleaks pull-request check, trigger it with a documented fake pattern, remediate it and prove the clean rerun | GitHub Actions, Git | 45 min |
+| ML37-01 | Project 37 security gate | R3 | Triage one secret, code, dependency or IaC finding and prove remediation | GitHub security tools | 40 min |
+| ML37-02 | One week after Project 37 | R4 | Repair a pull request blocked by a seeded supply-chain finding | GitHub Actions, security evidence | 45 min |
 
 ### Applications, containers and advanced networking
 
@@ -149,6 +165,7 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML24-03 | Project 29 | R5 | Investigate a blocked request using WAF and Sentinel evidence | KQL | 40 min |
 | ML25-01 | Project 25 routing | R3 | Build and explain a changed user-defined route table | CLI | 35 min |
 | ML25-02 | Project 25 Firewall | R4 | Diagnose a flow blocked by routing or Azure Firewall policy | Network Watcher, logs | 45 min |
+| ML25-03 | Project 25 Firewall | R3 | Implement one least-privilege Azure Firewall rule from an approved traffic request and verify the flow | Firewall Policy, CLI | 40 min |
 | ML26-01 | Project 26 hybrid DNS | R3 | Design split resolution for an on-premises-style namespace | DNS tools | 35 min |
 | ML26-02 | Project 26 VPN | R4 | Diagnose a simulated tunnel or route failure from connection evidence | CLI, PowerShell | 45 min |
 
@@ -161,6 +178,7 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML27-03 | One week after Project 27 | R4 | Diagnose why expected logs are missing | Diagnostic settings, KQL | 35 min |
 | ML28-01 | Project 28 posture | R2 | Triage recommendations by risk, cost and evidence | Defender for Cloud | 30 min |
 | ML28-02 | Project 28 remediation | R3 | Remediate one safe finding and prove the changed posture | CLI, Portal | 35 min |
+| ML28-03 | One week after Project 28 | R4 | Process a vulnerability ticket from affected asset through controlled remediation, retest and residual risk | Defender for Cloud, PowerShell | 40 min |
 | ML29-01 | Project 29 incidents | R3 | Investigate a changed alert and build a short incident timeline | Sentinel, KQL | 40 min |
 | ML29-02 | One week after Project 29 | R4 | Distinguish a false positive from a confirmed incident using evidence | Sentinel | 40 min |
 | ML30-01 | Project 30 backup | R2 | Verify protection state and perform an item-level restore | PowerShell | 40 min |
@@ -175,6 +193,7 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML31-02 | During Project 31 | R4 | Diagnose a multi-layer failure with one misleading symptom | CLI, PowerShell, logs | 45 min |
 | ML31-03 | After Project 31 assessment | R3/R4 | Repair the weakest measured AZ-104 objective | Best-fit tools | 30-45 min |
 | ML31-04 | One month later | R5 | Repeat a mixed administrator ticket with no procedural hints | Best-fit tools | 45 min |
+| ML31-05 | During Project 31 | R3 | Own a 2nd/3rd-line Azure ticket from impact and stakeholder update through change, rollback decision, verification and closure | PowerShell, ITIL-lite record | 45 min |
 
 This bank is deliberately larger than the minimum path. The tutor selects the
 next due lab from evidence in `PROGRESS.md`; it does not force every lab when the
@@ -188,11 +207,11 @@ The exam domains are deliberately repeated rather than taught once:
 
 | Current AZ-104 domain | First focused projects | Later reinforcement |
 | --- | --- | --- |
-| Manage Azure identities and governance | 11-13 | 28, 31-34, 38-39 |
-| Implement and manage storage | 16 | 21, 28, 30-32, 34, 38 |
-| Deploy and manage compute resources | 17-18, 21-22 | 27-32, 36-39 |
-| Implement and manage virtual networking | 14-15, 23-26 | 29, 31-32, 36, 38-39 |
-| Monitor and maintain Azure resources | 27, 30 | 28-32, 36, 38-39 |
+| Manage Azure identities and governance | 11-13 | 28, 31-34, 36, 38, 40-42 |
+| Implement and manage storage | 16 | 21, 28, 30-32, 34-36, 40 |
+| Deploy and manage compute resources | 17-18, 21-22 | 27-32, 38-41 |
+| Implement and manage virtual networking | 14-15, 23-26 | 29, 31-32, 38, 40-41 |
+| Monitor and maintain Azure resources | 27, 30 | 28-32, 38, 40-42 |
 
 Project 31 is a deliberate exam-scope integration project. It uses business scenarios and practical changes rather than copied exam questions. The official practice assessment comes later to reveal remaining gaps.
 
@@ -242,6 +261,78 @@ Every substantial portfolio project should also answer five questions clearly:
 3. What monitoring or logging proved the service was healthy?
 4. Which design decisions were made, and what alternatives were rejected?
 5. What broke, what evidence identified the problem and what changed afterward?
+
+### Decision-defence standard
+
+Every substantial project and independent mini-lab must begin with the problem
+and constraints rather than the intended Azure service. Before deployment, Sat
+should produce a short decision defence covering:
+
+1. The business outcome, users and expected demand.
+2. The security, region, recovery, budget and operational constraints.
+3. At least two plausible designs or services considered.
+4. The selected design and the specific reason it fits better.
+5. The rejected alternative and the condition that would make it preferable.
+6. Expected behaviour during demand growth and one component or regional failure.
+7. The likely steady-state cost when the workload is quiet, not only deployment cost.
+
+For guided work, the tutor models this reasoning. For Variation and later work,
+Sat must make and defend the choice before receiving the implementation recipe.
+Diagrams and AI suggestions are inputs to review, not substitutes for explaining
+the constraints and trade-offs.
+
+### Cost-verification standard
+
+- Estimate the important cost drivers before deployment and identify a cheaper
+  design that was considered.
+- Record why the selected design still meets the requirement.
+- Inspect the actual cost surface or relevant Azure pricing inputs after the
+  build where meaningful.
+- Verify budget scope, threshold and notification recipients when a budget is
+  part of the lab. Do not claim an alert works merely because an assignment or
+  configuration exists.
+- Never generate unnecessary spend solely to trigger a notification.
+- Record what stops billing after cleanup and which retained resources can still
+  incur charges.
+
+### Security pre-mortem
+
+Before the healthy build is considered complete, answer:
+
+1. Who can administer the resource and who can access its data plane?
+2. What is publicly reachable, and why is that exposure required?
+3. What happens if the workload identity, key or token is compromised?
+4. Which scope, network or identity boundary limits the blast radius?
+5. Which log, alert or investigation would reveal misuse?
+
+At the end of each month, compare current evidence with the previous month using
+one question: **What Azure problem can Sat now solve, explain and verify that he
+could not solve 30 days earlier?** Record the answer in `PROGRESS.md` with the
+help level and evidence, rather than counting videos, hours or certificates.
+
+### Interview-defence gate
+
+Projects 21, 25, 27, 30, 32 and 35-41 require a short interview-style defence
+after the technical mastery gate. This is retrieval and communication evidence,
+not a polished script. Without notes, Sat must:
+
+1. Explain the business requirement and outcome in no more than 60 seconds.
+2. Draw or reconstruct the important architecture and trust boundaries.
+3. Defend the selected Azure services and one significant configuration choice.
+4. Explain at least one credible rejected alternative and when it would become
+   the better choice.
+5. Identify the most important security boundary and the likely effect of its
+   failure or compromise.
+6. Describe one observed or seeded fault using symptom, evidence, hypothesis,
+   controlled change and independent retest.
+7. Explain the main cost drivers, what cleanup stopped billing and anything
+   intentionally retained.
+8. Answer one changed `what would you do if?` scenario that was not used during
+   the guided build.
+
+Record the help level and weak points honestly. A good README or successful
+deployment does not pass this gate if the design cannot yet be explained and
+adapted without notes. Repeat only the weak part later with changed wording.
 
 For the strongest independent projects and capstones, place a readable architecture diagram near the top of the README. Add a short walkthrough recording only when it demonstrates the running environment safely and does not expose account or tenant information.
 
@@ -421,6 +512,9 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Create a parameterised Bicep deployment with modules and outputs.
 - Preview changes with what-if before deployment.
 - Deploy and inspect using Azure CLI and PowerShell.
+- Store the deployment on a feature branch and use a small GitHub Actions
+  workflow to lint or build the Bicep and produce a reviewed `what-if` result.
+- Open and review a pull request before merging the infrastructure change.
 - Diagnose validation, dependency, API-version and scope errors.
 - **Mastery gate:** Modify a deployment from requirements and predict its what-if result.
 
@@ -433,20 +527,44 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Import or reconcile an existing resource, then refactor the resulting configuration into a reusable module without losing state ownership.
 - Compare Terraform import with Azure export tooling and portal ARM JSON. Treat generated configuration as a starting point, then validate every argument and plan rather than trusting an LLM conversion.
 - Create controlled drift, detect it and choose whether code or infrastructure should win.
+- Add an introductory GitHub Actions workflow that runs Terraform formatting,
+  validation and a reviewed plan without automatically applying it.
+- Practise one feature branch, pull request and safe merge so source-control and
+  pipeline habits begin before the advanced delivery project.
 - Diagnose authentication, provider, dependency and state-lock errors.
 - **Mastery gate:** Identify and correct destructive changes in an unfamiliar plan.
 
 ### Project 21: App Service Deployment and Production Operations
 
-**Business need:** An internal application needs repeatable deployment, staged releases, secrets-free access and useful diagnostics.
+**Business need:** An internal application needs a repeatable Azure platform,
+staged releases, private data access, secrets-free authentication and useful
+diagnostics. The delivery team also needs a clear hosting recommendation that
+non-technical stakeholders can understand.
 
 - Deploy an App Service plan and web app.
 - Configure deployment slots, settings, health checks and an appropriate scale choice.
 - Configure TLS, App Service networking and backup or restore where the selected tier supports them.
-- Use managed identity to access another Azure service.
+- Create an Azure SQL logical server and database for operational practice.
+- Configure Microsoft Entra authentication, restricted or private network
+  access, auditing and appropriate diagnostic settings for Azure SQL.
+- Compare Azure SQL Database, SQL Managed Instance and SQL Server on an Azure
+  VM from cost, compatibility and operational requirements.
+- Use managed identity to access Azure SQL or another Azure service without
+  embedding application credentials.
+- Connect the application, Azure SQL and suitable storage through private
+  connectivity and prove the intended DNS and access paths.
 - Recreate the platform with Bicep or Terraform.
+- Create a GitHub Actions or Azure Pipelines workflow that validates the
+  infrastructure and deploys the application to a staging slot before an
+  approved promotion or slot swap.
+- Use a feature branch and pull request, retain the plan or `what-if` evidence,
+  and diagnose one failed pipeline or deployment from its logs.
 - Diagnose startup, configuration, identity, DNS and slot-swap problems.
 - Capture logs and prove rollback.
+- Export or restore test data and verify that the application still functions.
+- Produce a short architecture decision record containing the business need,
+  constraints, chosen design, two rejected alternatives, security and cost
+  implications, operational ownership and a plain-English stakeholder summary.
 - **Mastery gate:** Perform a changed staged deployment and recovery with minimal hints.
 
 ### Project 22: Azure Containers and Managed Workloads
@@ -457,6 +575,9 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Store it in Azure Container Registry with controlled access.
 - Run a deterministic image vulnerability scan and compare the result with current Defender for Cloud registry assessment where licensing and cost permit.
 - Deploy with Container Instances or Container Apps.
+- Build, scan, publish and deploy the image through a small GitHub Actions or
+  Azure Pipelines workflow, with a pull request before changing the deployed
+  version.
 - Configure identity, ingress, environment values and scaling.
 - Compare the choice with AKS and App Service containers.
 - Diagnose image pull, registry permission, port and health failures.
@@ -586,7 +707,7 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Test recovery in isolation and validate restored data.
 - **Mastery gate:** Run a recovery exercise and report whether its objectives were met.
 
-## Projects 31 to 39: Administrator integration, enterprise security and capstones
+## Projects 31 to 42: Administrator integration, enterprise security, delivery and capstones
 
 ### Project 31: Azure Administrator Scenario Challenge
 
@@ -630,10 +751,27 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
 
 - Model joiner, mover and leaver processes with group-based access.
 - Define privileged and standard personas.
+- Create and compare an enterprise application, app registration, service
+  principal and managed identity, including their ownership and lifecycle.
+- Integrate a disposable test application for single sign-on and use it to
+  explain SAML, OAuth 2.0 and OpenID Connect. Compare these with LDAP and
+  Kerberos in traditional AD DS environments without treating the protocols as
+  interchangeable.
 - Use administrative units, access reviews, entitlement management or PIM where licensing permits.
+- Create an access-package or equivalent approval and recertification workflow
+  where licensing permits, then prove that expired or rejected access is absent.
 - Design Conditional Access in report-only mode before enforcement.
+- Review authentication methods, MFA and passwordless options, and test a
+  narrowly scoped modern-authentication policy with an emergency-access boundary.
 - Document emergency access and service-account boundaries.
 - Diagnose stale membership, inherited privilege and policy conflicts.
+- Investigate sign-in logs, audit logs, Conditional Access results, token claims,
+  authentication failures and risky sign-in evidence where licensing permits.
+- Design a hybrid-identity variation covering Microsoft Entra Connect Sync and
+  Cloud Sync, source of authority, matching, accidental-deletion protection and
+  staged migration. Compare password hash synchronisation, pass-through
+  authentication and federation, then diagnose a safe synchronisation-failure
+  scenario where a suitable AD DS environment is available.
 - Add a licence-dependent Microsoft 365 crossover: assign and remove a test
   licence through group-based membership, inspect the resulting service access
   and include Microsoft 365 group administration in the JML evidence where the
@@ -642,6 +780,10 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
   model a device-compliance requirement in report-only or a test-only scope,
   inspect the sign-in result and preserve an emergency-access boundary. Use a
   documented design exercise when a suitable licence is unavailable.
+- Produce an identity solution design, configuration guide, deployment plan,
+  test results and live-service support handover. Include a plain-English
+  stakeholder explanation and clearly label anything modelled rather than
+  deployed because of licensing.
 - **Mastery gate:** Process a changed JML scenario and prove obsolete access is removed.
 
 ### Project 34: Key Vault, Managed Identity and Secrets
@@ -656,24 +798,104 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
 - Scan the project for committed secrets before publication.
 - **Mastery gate:** Replace an insecure secret flow and explain every trust boundary.
 
-### Project 35: Secure Terraform Delivery Pipeline
+### Project 35: Enterprise Terraform Structure and State
 
-- Create reusable modules and environment inputs.
-- Secure remote state with least privilege and locking.
-- Add formatting, validation, linting and security checks.
-- Publish and consume a small private package or universal artifact through an
-  Azure Artifacts or GitHub Packages feed. Restrict feed permissions, control
-  upstream sources, pin dependencies and run an appropriate dependency audit.
-- Use workload identity federation instead of a stored secret where supported.
-- Practise feature branches, pull requests and one controlled merge conflict before promotion between environments.
-- Separate plan review from approved apply.
-- Inspect failed GitHub Actions runs through the web interface and `gh` CLI. Diagnose seeded identity-scope, regional-quota, runner-capacity and connectivity failures from logs before changing the pipeline.
-- Add an optional LLM explanation stage only after deterministic checks. Keep its output advisory, exclude credentials and Terraform state, and never use it as the sole security gate.
-- Add drift detection and state recovery procedures.
-- Prove that an unauthorised or destructive change is blocked.
-- **Mastery gate:** Safely deliver a changed environment without copying the guided configuration.
+**Business need:** A platform team needs reusable Azure infrastructure across
+multiple environments without losing ownership of state or relying on one
+engineer's local machine.
 
-### Project 36: AKS Platform Operations, GitOps and Container Security
+- Refactor an understood Azure design into small reusable modules with clear
+  inputs, outputs, version constraints and environment-specific values.
+- Separate development and production-style inputs without duplicating the
+  resource definitions.
+- Move state to a protected Azure Storage backend with encryption, versioning,
+  locking and least-privilege data-plane access.
+- Inspect state safely without exposing sensitive values and document which
+  resources Terraform owns.
+- Import and refactor an existing resource without replacement or loss of state
+  ownership.
+- Introduce controlled drift and decide whether configuration or the live
+  environment should win.
+- Simulate a safe lock, interrupted operation or damaged local working copy,
+  then follow a documented state-recovery procedure.
+- Review a plan containing replacement or destruction and explain its dependency
+  and blast-radius consequences before approval.
+- **Mastery gate:** Recover and modify a modular, remotely stored Terraform
+  environment without unsafe state manipulation.
+
+### Project 36: Secure Terraform Delivery with GitHub Actions
+
+**Business need:** Infrastructure changes must be reviewed, authenticated without
+stored cloud secrets and promoted through an auditable delivery process.
+
+- Practise feature branches, pull requests and one controlled merge conflict
+  before promotion between environments.
+- Create a GitHub Actions workflow that runs Terraform formatting, validation,
+  linting and a reviewed plan on pull requests.
+- Authenticate GitHub to Azure with OpenID Connect workload identity federation
+  instead of a stored client secret.
+- Give the delivery identity only the Azure and Terraform-state permissions
+  required for its environment.
+- Publish a sanitised plan summary for review without exposing state, identifiers
+  or sensitive values.
+- Separate plan review from apply and require an approved GitHub environment or
+  named reviewer before deployment.
+- Protect the default branch and prevent an unreviewed or unauthorised workflow
+  from applying infrastructure.
+- Inspect failed workflow runs through GitHub and the `gh` CLI. Diagnose seeded
+  identity-scope, regional-quota, runner-capacity and connectivity failures from
+  evidence before changing the pipeline.
+- Add drift detection, rollback decisions and a controlled promotion between
+  development and production-style environments.
+- Add an optional LLM explanation stage only after deterministic checks. Keep
+  its output advisory, exclude credentials and Terraform state, and never use it
+  as the sole approval or security gate.
+- **Mastery gate:** Deliver a changed Terraform environment through a reviewed,
+  secretless and independently verified pipeline.
+
+### Project 37: GitHub Advanced Security and Software Supply Chain
+
+**Business need:** The engineering team must prevent leaked credentials,
+vulnerable code, unsafe dependencies and insecure infrastructure changes from
+reaching the default branch.
+
+- Use a disposable public training repository for features available without a
+  paid private-repository licence, and confirm current billing before enabling
+  any trial or paid GitHub security product.
+- Begin with one guided GitHub Actions workflow so the workflow anatomy is
+  understood before several security products are combined: pull-request event,
+  job, hosted runner, checkout step, scanner step, permissions and check result.
+- Add Gitleaks as the first scanner. Pin third-party actions to reviewed full
+  commit SHAs, declare least-privilege `GITHUB_TOKEN` permissions and use only a
+  documented fake credential pattern.
+- Trigger a failed pull-request check, inspect the workflow and check logs,
+  remove the fake value, rerun the workflow and retain evidence of the clean
+  result. Configure branch protection so the failed required check genuinely
+  prevents merging.
+- Compare scanning only the pull-request change with scanning repository
+  history, and explain why `.gitignore` is not a secret-management control.
+- Enable and test secret scanning and push protection using only documented fake
+  credentials or safe custom patterns.
+- Add a small deliberately vulnerable sample application and configure CodeQL
+  code scanning on pull requests.
+- Configure Dependabot alerts and version-update pull requests for a controlled
+  outdated dependency.
+- Add dependency review and demonstrate the difference between detecting a
+  vulnerable dependency and blocking its introduction.
+- Scan Terraform with an appropriate deterministic tool such as Checkov or
+  Trivy, because CodeQL is not a replacement for IaC-specific analysis.
+- Publish and consume a small package through GitHub Packages or Azure Artifacts.
+  Restrict feed permissions, control upstream sources and pin dependencies.
+- Create pull-request security gates with a documented severity and exception
+  policy. Do not treat every finding as equal.
+- Triage a true positive, false positive and accepted risk, then remediate one
+  finding and independently prove the clean rerun.
+- Export a sanitised finding into an operational ticket containing owner,
+  evidence, controlled change, retest and residual risk.
+- **Mastery gate:** Diagnose and remediate a seeded software-supply-chain finding
+  without weakening or bypassing the security gate.
+
+### Project 38: AKS Platform Operations, GitOps and Container Security
 
 **Business need:** Multiple teams need a governed Kubernetes platform with isolated workloads, repeatable delivery, useful monitoring and accountable cost allocation.
 
@@ -689,7 +911,7 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
 - Diagnose image-pull failure, pending pods, failed readiness, DNS, network-policy denial, GitOps drift and an unhealthy node.
 - **Mastery gate:** Deliver a changed namespaced workload through GitOps, prove isolation and identity boundaries, diagnose one seeded failure and produce cost and cleanup evidence.
 
-### Project 37: Golden Image and Compute Gallery Pipeline
+### Project 39: Golden Image and Compute Gallery Pipeline
 
 - Define a secure Linux or Windows image baseline.
 - Build with Azure VM Image Builder or suitable automation.
@@ -699,7 +921,7 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
 - Diagnose customisation, replication and version-selection failures.
 - **Mastery gate:** Promote or reject an image version from test evidence.
 
-### Project 38: Capstone 2 - Secure Cloud Platform
+### Project 40: Capstone 2 - Secure Cloud Platform
 
 **Business need:** A product team needs a repeatable platform for an internet-facing application while the platform team retains governance and auditability.
 
@@ -715,7 +937,7 @@ Required capabilities:
 
 Demonstrate a deployment, a denied insecure path, a controlled release and a recovery action.
 
-### Project 39: Capstone 3 - Hybrid Operations and Incident Recovery
+### Project 41: Capstone 3 - Hybrid Operations and Incident Recovery
 
 **Business need:** A fictional organisation has on-premises dependencies, Azure workloads and an incident affecting connectivity, identity and availability.
 
@@ -731,9 +953,32 @@ Required capabilities:
 
 Start with incomplete documentation and seeded faults. Restore the critical service, prove recovery and explain how to prevent recurrence.
 
+### Project 42: Optional Secure Azure AI Platform
+
+**Business need:** A team wants to evaluate a managed AI application without
+exposing organisational data, credentials or an uncontrolled cost surface.
+
+- Inspect Azure AI Foundry capabilities, regions, quotas, pricing inputs and
+  responsible-AI boundaries before deploying a model or agent.
+- Design a small authorised use case and record why a conventional application
+  would or would not meet the requirement.
+- Use managed identity and Key Vault rather than embedding credentials.
+- Restrict data, tool and network access using least privilege and private access
+  where supported and affordable.
+- Configure content-safety, logging, monitoring, token or request budgets and a
+  prompt-and-output data-handling policy.
+- Test safe prompt-injection, excessive-agency and unintended-data-disclosure
+  scenarios without using real confidential information.
+- Deliver the configuration through a reviewed pipeline and keep deterministic
+  security checks authoritative over any model-generated explanation.
+- Capture cost and cleanup evidence and clearly distinguish a learning
+  evaluation from a production AI platform.
+- **Mastery gate:** Explain and verify every identity, data, network, tool and
+  cost boundary in a changed AI workload design.
+
 ## Certification and consolidation checkpoint
 
-After Project 31 for an initial readiness check, after Project 32 for the core administration capstone, or after Project 39 for the broadest preparation:
+After Project 31 for an initial readiness check, after Project 32 for the core administration capstone, or after Project 41 for the broadest preparation:
 
 1. Work through the current official [AZ-104 study guide](https://learn.microsoft.com/credentials/certifications/resources/study-guides/az-104).
 2. Complete relevant Microsoft Learn administrator paths and sandbox exercises.

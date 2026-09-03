@@ -10,12 +10,25 @@ The detailed checklist is in the [progressive Azure roadmap](../../assets/azure-
 | D: Advanced networking, security and operations | 23-30 | Deliver application traffic, hybrid connectivity, security monitoring and recovery | Packet paths, WAF and routing evidence, Defender remediation, Sentinel investigation, KQL, alerts and restores | Pending |
 | E: Administrator integration | 31 | Integrate the current AZ-104 domains through changed operational scenarios | Independent tickets, mixed faults, objective mapping and repair mini-labs | Pending |
 | F: Core administration capstone | 32 | Build and operate a coherent governed environment with decreasing help | Independent design, implementation, break/fix, recovery and explanation | Pending |
-| G: Enterprise security and platform projects | 33-37 | Deepen identity, secrets, Terraform delivery, Kubernetes operations and secure compute images | Independent security-first project evidence | Pending |
-| H: Advanced capstones | 38-39 | Integrate secure platforms and operate a hybrid-style incident | Architecture, controlled delivery, diagnosis, recovery and root-cause evidence | Pending |
+| G: Enterprise security and platform projects | 33-39 | Deepen identity, secrets, Terraform engineering, secure delivery, software-supply-chain security, Kubernetes operations and secure compute images | Independent security-first project evidence | Pending |
+| H: Advanced capstones and optional AI security | 40-42 | Integrate secure platforms, operate a hybrid-style incident and optionally evaluate a governed AI workload | Architecture, controlled delivery, diagnosis, recovery, root-cause and threat evidence | Pending |
 | I: Microsoft consolidation | Official paths and Applied Skills | Connect formal Microsoft material to practical experience and expose gaps | Module checks, Applied Skills and targeted repair drills | Pending |
 | J: Certification readiness | Review | Use AZ-104 as an optional confidence and coverage checkpoint | Objective mapping, weak-area repairs and timed practice | Future |
 
 ## Project Learning Pattern
+
+Every substantial project is security-first. Before deployment, identify the
+identities, trust boundaries, public exposure, sensitive data, secrets,
+permissions and likely blast radius. During the build, apply least privilege
+and secure defaults. Before completion, verify logging, recovery, cleanup and
+the absence of unintended access. Security is part of each design decision,
+not a separate hardening task added at the end.
+
+Business-scenario judgement is introduced progressively. Early scenarios give
+the company profile, workload, needs and constraints explicitly, then teach the
+learner to classify them before selecting services. Later projects provide
+less structure and require increasingly independent trade-off analysis,
+alternative rejection and stakeholder explanation.
 
 | Project task | Learn first | Practice | Project evidence |
 | --- | --- | --- | --- |

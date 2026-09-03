@@ -15,6 +15,10 @@
   problem, change and known-error distinctions. Project 33 now includes
   licence-dependent Microsoft 365 group licensing and an Intune device-compliance
   variation, with a design-only fallback when suitable licensing is unavailable.
+- Mini-lab reinforcement: ML18-05 adds an independent patch-maintenance window;
+  ML25-03 adds a least-privilege Azure Firewall change; ML28-03 adds a complete
+  vulnerability-remediation ticket; and ML31-05 adds ownership of a realistic
+  2nd/3rd-line Azure ticket from impact through verified closure.
 - Boundary: This remains an Azure and cloud-engineering curriculum. Microsoft
   365, Intune and ITIL are included only where they strengthen identity,
   security, operations and support evidence.

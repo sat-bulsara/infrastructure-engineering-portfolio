@@ -82,6 +82,12 @@
   restricted access, monitoring, explainable design decisions and an evidenced
   troubleshooting story. Put a clear architecture diagram near the top of major
   independent READMEs and consider a short public-safe walkthrough for capstones.
+- Wants labs to build employable engineering judgement rather than only service
+  recognition. Begin substantial work from a business problem and constraints,
+  require a short defence of the chosen and rejected design, verify cost controls
+  instead of assuming configured alerts work, and use a security pre-mortem before
+  completion. Record monthly capability growth as problems independently solved,
+  explained and verified rather than hours studied or certificates collected.
 - Avoid em dashes in repository documentation.
 - For Azure portfolio labs, use no more than five embedded screenshots unless a
   different limit is requested. Inspect every image in the folder, including

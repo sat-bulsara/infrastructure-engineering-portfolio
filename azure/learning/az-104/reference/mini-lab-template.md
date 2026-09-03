@@ -14,6 +14,15 @@
 State what is different from the previous attempt. Change at least one meaningful
 condition such as resource type, scope, name, access path, failure, or tool.
 
+## Decision Defence
+
+- Business outcome and expected demand:
+- Security, region, recovery, budget and team constraints:
+- Plausible options considered:
+- Selected option and why it fits:
+- Rejected option and when it would be preferable:
+- Expected scaling and failure behaviour:
+
 ## Retrieval First
 
 Without notes, explain one idea needed for this task.
@@ -27,8 +36,18 @@ Link one current official source and state the exact question it should answer.
 - Confirm the active tenant and subscription without recording identifiers.
 - Confirm permission and least-privilege scope.
 - Identify public exposure, secret handling, likely cost, and cleanup.
+- Identify the main cost drivers and one cheaper design considered.
+- State which resources can continue billing when stopped or retained.
 - Stop before any destructive, chargeable, tenant-wide, or lockout-prone action
   that has not been deliberately approved.
+
+## Security Pre-Mortem
+
+- Administrative and data-plane access:
+- Required public exposure:
+- Credential or identity compromise impact:
+- Blast-radius boundary:
+- Log or alert that could reveal misuse:
 
 ## Task
 
@@ -77,3 +96,4 @@ For R4, provide symptoms without revealing the cause. Require:
 - Misconception or weak point:
 - Next variation:
 - Next review date:
+- Thirty-day capability comparison:

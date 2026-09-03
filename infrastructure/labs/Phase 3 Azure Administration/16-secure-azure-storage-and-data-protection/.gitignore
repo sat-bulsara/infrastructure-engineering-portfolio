@@ -1,0 +1,12 @@
+.DS_Store
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform/
+crash.log
+*.sas
+*.key
+*.secret
+*.env
+screenshots/private/
+

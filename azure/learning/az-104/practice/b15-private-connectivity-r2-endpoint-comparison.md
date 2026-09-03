@@ -17,6 +17,23 @@ private endpoint pattern used in Project 15. The goal is to select the suitable
 design from the requirements, configure only the changed mechanism and prove the
 effective network path.
 
+## Decision Defence
+
+- Business outcome and demand: One internal reporting workload needs reliable
+  access to one Azure Storage account from one trusted application subnet.
+- Constraints: Public DNS resolution is acceptable; a VNet private IP is not
+  required; access must be restricted to the trusted subnet; avoid unnecessary
+  Private Link cost and DNS complexity.
+- Options considered: Storage service endpoint and private endpoint.
+- Selected option: Service endpoint because the workload needs subnet-restricted
+  Storage access but does not require a private IP or private DNS.
+- Rejected option: Private endpoint, which becomes preferable when a private IP,
+  disabled public network path, on-premises private reachability or stronger
+  data-exfiltration protection is required.
+- Scaling and failure behaviour: Additional trusted subnets require explicit
+  Storage firewall rules. The service endpoint does not remove reliance on the
+  Storage public endpoint or public DNS resolution.
+
 ## Retrieval First
 
 Without notes, explain whether a service endpoint gives the storage account a
@@ -38,6 +55,21 @@ subnet identity?
 - A service endpoint itself has no extra charge, but normal storage and data-transfer charges can apply.
 - Do not recreate a private endpoint for this comparison unless deliberately approved, because Private Link has billable hourly and data-processing components.
 - Remove all temporary resources and verify their absence.
+
+## Security Pre-Mortem
+
+- Administrative and data-plane access: The exercise configured the management
+  plane network boundary only; no storage keys, SAS tokens or data-plane role
+  assignments were used.
+- Required public exposure: The Storage public endpoint remains, but anonymous
+  Blob access must remain disabled and the firewall must restrict network access.
+- Credential compromise impact: A stolen credential still requires suitable
+  data-plane authorisation and, with the firewall defaulting to Deny, a permitted
+  network path.
+- Blast-radius boundary: The disposable resource group, selected subnet and
+  narrowly scoped Storage network rule.
+- Detection: Azure CLI read-only evidence retained for the subnet endpoint and
+  Storage network rule. Storage diagnostic logging remains outside this short variation.
 
 ## Task
 
@@ -80,15 +112,25 @@ network interface or change the normal storage DNS name to a VNet private IP.
 
 ## Cleanup and Evidence
 
-- Resources removed or intentionally retained: Pending
-- Public-safe evidence retained: Pending
-- Secrets and identifiers checked: Pending
+- Resources removed or intentionally retained: The disposable resource group
+  and all contained resources were deleted; `az group exists` returned `false`.
+- Public-safe evidence retained: Clean subnet endpoint, Storage firewall and DNS
+  results were returned during the exercise; no portfolio publication is required.
+- Secrets and identifiers checked: No keys, connection strings or SAS tokens were
+  used or retained. Subscription-scoped identifiers remain unsuitable for public evidence.
 
 ## Tutor Record
 
-- Outcome: Pending
-- Help used: Pending
-- What was demonstrated: Pending
-- Misconception or weak point: Pending
+- Outcome: Complete. Service endpoint, subnet-scoped Storage firewall rule,
+  unchanged public DNS resolution and final resource-group absence were verified.
+- Help used: Hint for command construction, with Full correction for the
+  `Microsoft.Storage` namespace and Azure-services firewall bypass.
+- What was demonstrated: Created the disposable scope, VNet, `/24` client subnet,
+  Storage service endpoint and Standard LRS Storage account; enforced TLS 1.2,
+  disabled anonymous Blob access, set the firewall default to Deny, removed the
+  Azure-services bypass and allowed only the selected subnet.
+- Misconception or weak point: Initially supplied the resource-group name where
+  the service namespace was required, and initially selected an NSG rule instead
+  of removing the Storage firewall bypass.
 - Next variation: ML15-03 one-sided peering break/fix, then ML15-04 private DNS repair
-- Next review date: Pending
+- Next review date: 2026-09-07

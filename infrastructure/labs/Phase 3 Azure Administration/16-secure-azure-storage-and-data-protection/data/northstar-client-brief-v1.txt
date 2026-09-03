@@ -1,0 +1,6 @@
+Northstar Design Group
+Fictional client: Alder House Hotels
+Document: Initial design brief
+Version: 1
+Classification: Confidential - fictional lab data
+Requirement: Produce sustainable guest-room concepts.
