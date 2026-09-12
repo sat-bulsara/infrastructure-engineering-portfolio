@@ -2,20 +2,24 @@
 
 ## Current focus
 
-Project 01, step 1: identify the intended Linux lab and distinguish it from the
-Mac host before any system changes.
+Project 01 is closed as a completed guided lab. Its portfolio script, retained
+output, controlled storage test and rollback were verified. The exit check was
+completed with corrections, so independent mastery is not yet claimed. Project
+02 has not started.
 
 ## Next action
 
-On the intended Linux lab, run `cat /etc/os-release` and paste the exact output
-into the Linux tutor. If no Linux lab is currently available, say that instead
-of running the command on the Mac.
+Wait for Sat's explicit confirmation before starting Project 02. Project 01's
+README and retained evidence are complete. Revisit its weak points later as
+spaced practice on the same Ubuntu VM.
 
 ## Review queue
 
 | Review on | Topic | Prompt |
 | --- | --- | --- |
-| 2026-08-28 | Linux environment context | Which evidence tells you the operating system and release you are actually administering? |
+| 2026-09-08 | Linux environment context | Which evidence tells you the operating system and release you are actually administering? |
+| 2026-09-14 | Distribution identification | Which `/etc/os-release` fields are useful to humans and scripts? |
+| 2026-10-07 | Safe context discovery | On an unfamiliar Linux host, what should you establish before making changes? |
 
 ## Session log
 
@@ -23,3 +27,37 @@ of running the command on the Mac.
 | --- | --- | --- | --- | --- |
 | 2026-08-27 | Course design | No Linux skill assessed; project path and safety rules created | Full planning support | Identify the Linux lab with `/etc/os-release` |
 | 2026-08-27 | Curriculum expansion | No Linux skill assessed; path expanded to 24 coding projects with Bash repetition, project quizzes and four-project phase gates | Full planning support | Identify the Linux lab with `/etc/os-release` |
+| 2026-09-07 | Project 01, platform discovery | Created an authorised Ubuntu 26.04.1 LTS ARM64 VM, logged in as an unprivileged user, predicted that `cat /etc/os-release` is read-only and produced exact release output | Full setup and command support; prediction correct | Identify the human-readable and machine-friendly fields in the saved output |
+| 2026-09-08 | Project 01, SSH lab enablement | Installed OpenSSH Server from Ubuntu repositories, verified socket activation on port 22, identified the VM private address and connected successfully from WezTerm over the VMware NAT network | Full command support and several focused typo corrections; SSH operation not yet independent | Identify the human-readable and machine-friendly fields in the saved `/etc/os-release` output |
+| 2026-09-08 | Project 01, distribution fields | Identified `PRETTY_NAME` as the human-readable release field and `ID` as the machine-friendly distribution identifier after separating field names from their values | Full correction; recall was not independent | Predict the target and effect of `whoami` before running it |
+| 2026-09-08 | Project 01, identity prediction | Predicted that `whoami` will report `satbulsara` and will not change the system | None for the prediction | Run `whoami` and compare its exact output with the prediction |
+| 2026-09-08 | Project 01, current user | Ran the guided `whoami` check through SSH; output `satbulsara` matched the saved prediction and the command made no system change | Full command provided; prediction and result comparison completed without further help | Predict what `id` adds beyond the username and whether it needs `sudo` |
+| 2026-09-08 | Project 01, identity details | Ran `id` and supplied exact output showing UID 1000, primary GID 1000 and membership of administrative and device-related groups including `sudo` | Full explanation before execution; initially predicted that read-only `id` needed `sudo` | Explain the difference between ordinary identity, `sudo` membership and an elevated command |
+| 2026-09-08 | Project 01, privilege boundary | Explained after correction that the session is logged in as `satbulsara` and `sudo` is used when a command requires elevated privileges; distinguished this from entering a directory | Partial correction after initially confusing root privileges with the root directory | Predict the output and effect of `pwd` |
+| 2026-09-08 | Project 01, working directory | Predicted `/home/satbulsara` after correcting the missing leading slash, correctly classified `pwd` as read-only and reported that execution matched the prediction | Partial correction; exact terminal output was not supplied for review | Change only the shell location to `/`, then verify it with `pwd` |
+| 2026-09-08 | Project 01, filesystem root | Reported completing `cd /` followed by `pwd`, with `/` as the expected filesystem-root location | Commands supplied in full; exact terminal output was not supplied for review | Inspect `/`, return home with bare `cd`, and verify with `pwd` |
+| 2026-09-08 | Project 01, home and root paths | Reported that bare `cd` returned the shell to the `satbulsara` home directory after working at filesystem root | Full commands supplied; conceptual result correct, but exact combined output was not reviewed | Verify the home path and inspect kernel release and architecture |
+| 2026-09-08 | Project 01, kernel and architecture | Supplied exact output confirming `/home/satbulsara`, kernel `7.0.0-31-generic` and ARM64 architecture reported as `aarch64` | Full commands supplied; execution evidence reviewed | Collect CPU, memory and root-filesystem capacity evidence |
+| 2026-09-08 | Project 01, resource discovery | Supplied exact output from `nproc`, `free -h` and `df -h /`: 2 CPUs, 3.3 GiB total memory with 2.8 GiB available, no configured swap, and a 9.8 GB root logical volume at 34% use | Full commands supplied; interpretation not yet assessed | Interpret CPU, available-memory and root-filesystem usage evidence |
+| 2026-09-08 | Project 01, resource interpretation | Correctly identified 2 CPUs without help, repaired `free` versus `available` memory with Partial help, and eventually identified root `Use%` as 34% after repeatedly selecting the available-space value | Full repair support for filesystem columns; delayed recheck required | Use local `df` help to explain `-h` |
+| 2026-09-08 | Project 01, local help | Initially entered `-h` as if it were a command, then used `df --help`, located the `-h, --human-readable` entry and correctly selected that it makes storage figures easier for people to read | Full command-structure correction; final interpretation correct | Create and verify a Project 01 evidence directory in the VM user's home |
+| 2026-09-08 | Project 01, evidence workspace | Distinguished the Ubuntu VM filesystem from the Mac portfolio repository and supplied exact `pwd` output confirming `/home/satbulsara/linux-labs/project-01` as the temporary workspace | Full path and workflow guidance | Create and inspect the sanitised baseline summary |
+| 2026-09-08 | Project 01, sanitised summary | Created and displayed `baseline-summary.txt` containing only Ubuntu release, architecture, CPU, memory and root-use evidence; supplied contents contain no username, hostname or IP address | Full creation command supplied; file contents reviewed, but `ls -l` metadata was not supplied | Copy the reviewed summary into the portfolio and verify the local copy |
+| 2026-09-08 | Project 01, retained baseline evidence | Copied `baseline-summary.txt` from the Ubuntu VM to the canonical Project 01 `data/` folder and displayed matching contents from the Mac; repository inspection independently confirmed the file | Full `scp` and verification commands supplied | Begin the first Bash baseline script with a shebang, comment and safe settings |
+| 2026-09-08 | Project 01, Bash script opening | Created `baseline.sh` with a Bash shebang and purpose comment; `file` recognised a Bourne-Again shell script and silent `bash -n` output confirmed valid syntax | Full creation and diagnostic commands supplied | Distinguish append redirection from overwrite before adding dynamic output |
+| 2026-09-08 | Project 01, first Bash variable | Correctly identified `>>` as append redirection, then added `architecture=$(uname -m)` and labelled `printf` output to the script; supplied file contents show correct variable expansion syntax | Full code supplied; execution not yet verified | Explain and apply the user execute permission, then run the script |
+| 2026-09-08 | Project 01, first script execution | Correctly predicted `chmod u+x`, verified owner execute permission as `-rwx`, and ran `./baseline.sh`; exact output was `Architecture: aarch64` | Full commands supplied; `chmod` was repeated harmlessly | Recall and add the human-readable operating-system variable |
+| 2026-09-11 | Project 01, remote-context recovery | After the SSH session disconnected, commands were accidentally run in a Mac Terraform directory; reconnected and supplied exact `hostname`, `pwd` and `cat` evidence confirming host `ubuntu-3`, directory `/home/satbulsara/linux-labs/project-01` and the intact remote script | Full recovery commands supplied; accidental Mac file still requires scoped inspection before removal | Add and verify the dynamic operating-system output on Ubuntu |
+| 2026-09-11 | Project 01, dynamic OS output | Loaded trusted `/etc/os-release` variables and ran the script; exact output showed `Architecture: aarch64` and `OS: Ubuntu 26.04.1 LTS` | Full append command supplied; execution output verified | Select and add changed command substitution for CPU count |
+| 2026-09-12 | Project 01, dynamic CPU output | Repaired command-substitution assignment syntax, added the `nproc` value and confirmed the verification step by replying `next` | Partial syntax correction and Full code supplied; completion self-reported without exact output | Explain a pipeline and add dynamic total-memory output |
+| 2026-09-12 | Project 01, memory pipeline | Correctly explained that a pipe sends one command's output into the next, then reported successful addition of the `free -h | head -n 2` memory section | Full code supplied; completion self-reported without exact output | Add root-filesystem output and inspect the complete script |
+| 2026-09-12 | Project 01, complete dynamic baseline | Added `df -h /`, repaired a missing append after read-only inspection, generated `baseline-output.txt` and supplied complete output showing architecture, OS, CPU, memory and root-filesystem data with no username, hostname or IP address in the report itself | Full storage and redirection commands supplied; complete output verified | Copy the script and output into the canonical portfolio project and inspect them locally |
+| 2026-09-12 | Project 01, retained Bash evidence | Copied `baseline.sh` and `baseline-output.txt` into the canonical project; repository inspection confirmed matching public-safe content, executable owner permission and valid Bash syntax | Full `scp` commands supplied; first password attempt failed and retry succeeded | Explain the script's Bash constructs before reduced-help variation |
+| 2026-09-12 | Project 01, guided script explanation | Correctly explained command substitution, variable expansion and exclusion of identifying data; repaired the meaning of `source /etc/os-release` and then identified `$PRETTY_NAME` correctly | Partial help for `source`; other answers correct without help | Produce and compare a fresh baseline with reduced support |
+| 2026-09-12 | Project 01, repeat baseline comparison | Selected rerunning a fresh baseline and classified silent `diff -u` output correctly as identical files | Full comparison commands supplied; result self-reported rather than pasted | Create one controlled storage difference, detect it, roll it back and retest |
+| 2026-09-12 | Session wrap-up | Stopped after the guided script, retained output and same-state comparison; no controlled storage change was started | No additional help | Resume with the saved controlled 100 MiB variation, rollback and retest |
+| 2026-09-12 | Project 01, controlled storage variation | Created a targeted 500 MiB file after an initial missed creation, verified root use rising from 35% to 40%, removed the exact file and verified recovery to 35% | Full commands supplied; exact change and rollback output verified | Complete the rapid Project 01 exit check |
+| 2026-09-12 | Project 01, guided build closeout | Chose to move forward after completing the script, retained evidence and controlled rollback; the six-part exit quiz was created but not attempted | Guided build complete; Project 01 mastery remains unconfirmed | Start Project 02 and interleave the deferred Project 01 checks |
+| 2026-09-12 | Project 02, return home | Confirmed the guided `cd ~` action with `next` | Self-reported; exact `pwd` output not supplied | Create the disposable filesystem workbench |
+| 2026-09-12 | Project 01, documentation closeout | Reconciled the README with verified evidence, recorded the guided completion boundary and included the sanitised screenshot; Bash syntax rechecked successfully | Documentation completed with tutor editing; independent mastery not claimed | Wait for explicit confirmation before starting Project 02 |
+| 2026-09-12 | Project 01, exit check | Answered command substitution, pipeline, assignment-debugging and safety items correctly; initially confused OS release discovery with architecture and needed Full correction for the `printf` command before supplying exact correct output | Mixed: four independent answers, two repaired items | Complete changed-scenario rechecks for the two repaired skills, then resume Project 02 |

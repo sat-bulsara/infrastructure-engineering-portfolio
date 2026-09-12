@@ -1,6 +1,8 @@
 # Project 15: VNet peering, Private DNS and private endpoints
 
-This learning lab connects an application spoke to shared services in a hub without exposing the service through its public network endpoint. I built the initial hub boundary with Azure CLI, adopted it into Terraform, added the spoke and bidirectional peering, then published Azure Blob Storage through a private endpoint and Private DNS.
+> Status: completed, verified and cleaned up
+
+This learning lab moved beyond isolated virtual networks into private service connectivity. I connected an application spoke to shared services in a hub, adopted the initial Azure CLI-built boundary into Terraform, and made the Blob service available through a private endpoint and Private DNS. Public network access was disabled in the final configuration.
 
 ## Business need
 
@@ -32,11 +34,11 @@ The Blob private endpoint was approved in `snet-private-endpoints-uks-01`. Its z
 ![Storage security baseline before the public network path was disabled](screenshots/07-storage-security-baseline.png)
 ![Private DNS record mapped the Blob service to 10.40.1.4](screenshots/08-private-dns-a-record.png)
 
-## Terraform and troubleshooting
+## Terraform adoption and drift repair
 
-[`terraform/main.tf`](terraform/main.tf) records the complete dependency graph. I imported the existing hub resource group, spoke resource group, hub VNet and private-endpoint subnet, reached a no-change plan, and then used reviewed plans to add the spoke, application subnet, peerings, storage account, private endpoint and DNS configuration.
+[`terraform/main.tf`](terraform/main.tf) records the complete dependency graph. Rather than rebuilding the Azure CLI-created resources, I declared matching resources and imported the existing hub resource group, spoke resource group, hub VNet and private-endpoint subnet into Terraform state. I reconciled the configuration until the plan showed no changes, then used reviewed plans to add the spoke, application subnet, peerings, storage account, private endpoint and DNS configuration.
 
-For the break/fix exercise, I manually removed the spoke DNS-zone link. Terraform refreshed Azure state and proposed exactly one addition. Applying the repair plan restored `link-storage-blob-spoke`, and PowerShell then showed both hub and spoke links in the `Completed` state. This represents a realistic configuration-drift incident where peering remains healthy but the application network loses private DNS visibility.
+For the break/fix exercise, I manually removed the spoke DNS-zone link while leaving the peering intact. Terraform refreshed Azure state and proposed exactly one addition. Applying the reviewed repair plan restored `link-storage-blob-spoke`, and PowerShell then showed both hub and spoke links in the `Completed` state. This reproduced a realistic configuration-drift incident: the networks can remain connected while the application spoke loses private name resolution for the service.
 
 ## Security decisions
 
@@ -57,6 +59,10 @@ No VM or other workload was deployed inside the spoke, so an end-to-end DNS quer
 The private endpoint, Private DNS zone and storage account were short-lived paid resources. A reviewed destroy plan removed all 13 Terraform-managed resources. Azure CLI then independently returned `false` for both lab resource groups.
 
 ![Both Project 15 resource groups verified absent after cleanup](screenshots/09-cleanup-verification.png)
+
+## What I learned
+
+VNet peering, DNS visibility and service authorisation solve different parts of the connection. A healthy peering state does not prove that a client can resolve a private service name, and a correct private DNS record does not prove that the caller is authorised to use the data. Testing and troubleshooting these layers independently made the final design easier to understand and verify.
 
 ## Supporting files
 

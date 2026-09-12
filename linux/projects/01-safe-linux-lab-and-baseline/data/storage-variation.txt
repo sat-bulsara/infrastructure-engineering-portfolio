@@ -1,0 +1,8 @@
+Controlled storage variation
+
+Before:  root filesystem 35% used
+Change:  allocated one 500 MiB test file in the disposable lab
+During:  root filesystem 40% used
+Rollback: removed the targeted test file
+After:   root filesystem 35% used
+

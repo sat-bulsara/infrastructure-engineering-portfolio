@@ -73,7 +73,7 @@ resource "azurerm_virtual_network_peering" "spoke_to_hub" {
 }
 
 # Storage service used to test private endpoint connectivity from the hub and spoke VNets.
-# Public network access remains enabled temporarily for the controlled before-and-after test.
+# The final configuration disables public network access after private connectivity is verified.
 resource "azurerm_storage_account" "private" {
   name                            = var.storage_account_name
   resource_group_name             = azurerm_resource_group.hub.name

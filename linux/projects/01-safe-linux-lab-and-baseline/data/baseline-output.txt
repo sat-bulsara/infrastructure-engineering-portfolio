@@ -1,0 +1,11 @@
+Architecture: aarch64
+OS: Ubuntu 26.04.1 LTS
+CPU cores: 2
+
+Memory:
+               total        used        free      shared  buff/cache   available
+Mem:           3.3Gi       502Mi       2.3Gi       1.2Mi       721Mi       2.8Gi
+
+Root filesystem:
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv  9.8G  3.2G  6.1G  35% /

@@ -1,0 +1,5 @@
+OS: Ubuntu 26.04.1 LTS
+Architecture: aarch64
+CPU cores: 2
+Memory total: 3.3 GiB
+Root filesystem used: 34%

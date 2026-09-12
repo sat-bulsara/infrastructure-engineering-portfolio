@@ -8,6 +8,11 @@
 | D: Logs and secure administration | Investigate evidence and audit remote exposure | journald, parsing, rotation, SSH, keys, firewall, least privilege and safe configuration | Projects 13-16 plus Quiz Gate D | Planned |
 | E: Service and shell engineering | Deploy services and turn scripts into maintainable tools | configuration, rollback, web service operation, Bash libraries, static analysis and script tests | Projects 17-20 plus Quiz Gate E | Planned |
 | F: Platform capstone | Automate containers, bootstrap hosts and recover incidents | containers, cloud-init, Python integration, reusable tooling, incident diagnosis and communication | Projects 21-24 plus final cumulative gate | Planned |
+| G: Configuration management | Configure several Linux hosts consistently and detect drift | Ansible, inventories, playbooks, roles, variables, templates, handlers, idempotence and secrets boundaries | Projects 25-28 plus Quiz Gate G | Planned extension |
+| H: Cloud Linux operations | Provision and operate disposable Linux services in an authorised cloud sandbox | cloud identity, networks, compute, cloud-init, infrastructure as code, patching, backup and recovery | Projects 29-32 plus Quiz Gate H | Planned extension |
+| I: Observability and reliability | Detect degradation, investigate evidence and improve service reliability | metrics, logs, dashboards, alerts, service-level thinking, capacity, runbooks and incident review | Projects 33-36 plus Quiz Gate I | Planned extension |
+| J: Containers and delivery | Build, test and deliver a small multi-service system safely | images, registries, Compose, networks, volumes, CI checks, deployment validation and rollback | Projects 37-40 plus Quiz Gate J | Planned extension |
+| K: Advanced Linux engineering | Diagnose unfamiliar host, boot, performance, network and security failures | boot process, kernel interfaces, performance tools, advanced networking, hardening and integrated recovery | Projects 41-44 plus final advanced gate | Planned extension |
 
 ## Numbered Project Roadmap
 
@@ -42,7 +47,62 @@
 | 22 | Cloud-Init Bootstrap Project | YAML structure, embedded Bash, idempotence and first-boot evidence | packages, users, services, files and logging | Planned |
 | 23 | Python-Enhanced Linux Reporter | choose Bash or Python for parsing and structured output | Linux evidence, Bash orchestration and Python integration | Planned |
 | 24 | Linux Incident Automation Capstone | independent toolkit selection, diagnosis, recovery and reporting | select and integrate skills from Projects 01-23 | Planned |
-| Final | Cumulative operations coding assessment | unseen break/fix, scripting, explanation and transfer | independent recovery plus repaired quiz gaps | Planned |
+| Core Final | Cumulative operations coding assessment | unseen break/fix, scripting, explanation and transfer | independent recovery plus repaired quiz gaps from Projects 01-24 | Planned |
+| 25 | Ansible Inventory and Discovery Lab | inventories, facts, check mode and safe remote discovery | SSH, host context, arguments, reports and public-safe evidence | Planned extension |
+| 26 | Idempotent Host Configuration | playbooks, modules, variables and state declarations | packages, users, permissions, services and verification | Planned extension |
+| 27 | Roles, Templates and Handlers | role structure, Jinja templates, handlers and validation | configuration deployment, functions, service health and rollback | Planned extension |
+| 28 | Configuration Drift and Recovery | drift detection, controlled correction and multi-host reporting | logs, checksums, idempotence, testing and incident evidence | Planned extension |
+| Gate G | Configuration management quiz and practical | unseen multi-host requirement, drift fault and repair | Projects 01-28 without copied playbooks | Planned extension |
+| 29 | Authorised Cloud Linux Baseline | cloud identity boundaries, network scope and reproducible discovery | cloud-init, SSH, firewall, Bash reporting and sanitisation | Planned extension |
+| 30 | Infrastructure as Code Deployment | declarative compute, network and storage resources with plan review | configuration management, variables, validation and rollback | Planned extension |
+| 31 | Cloud Service Operations Lab | deploy, patch, monitor and back up a small Linux service | systemd, networking, storage, logs and health checks | Planned extension |
+| 32 | Cloud Failure and Recovery Exercise | replace or recover a degraded disposable host from code and evidence | backups, DNS, automation, incident reasoning and retesting | Planned extension |
+| Gate H | Cloud operations quiz and practical | unseen deployment change plus controlled recovery | Projects 01-32 with least-privilege decisions | Planned extension |
+| 33 | Metrics and Capacity Baseline | collect useful host and service metrics with threshold logic | processes, storage, networking, Python parsing and reports | Planned extension |
+| 34 | Log and Metric Correlation Lab | align timestamps and correlate symptoms across evidence sources | journald, pipelines, structured data and hypotheses | Planned extension |
+| 35 | Alert and Runbook Engineering | actionable alerts, safe checks and tested operator instructions | conditions, exit codes, service checks and communication | Planned extension |
+| 36 | Reliability Incident Review | controlled outage, timeline, recovery and prevention work | monitoring, rollback, automation and root-cause reasoning | Planned extension |
+| Gate I | Observability and reliability quiz | unseen degradation, noisy evidence and practical recovery | Projects 01-36 with a changed service | Planned extension |
+| 37 | Secure Container Image Build | Dockerfile or equivalent, dependencies, users and image inspection | packages, permissions, shell tests and security checks | Planned extension |
+| 38 | Multi-Service Compose Lab | service networks, volumes, dependencies and health checks | DNS, ports, storage, configuration and logs | Planned extension |
+| 39 | Continuous Integration Checks | automated linting, tests, image checks and evidence capture | Bash quality, Python tests, exit codes and Git workflows | Planned extension |
+| 40 | Safe Delivery and Rollback | versioned deployment, validation, controlled failure and recovery | CI evidence, monitoring, backups and runbooks | Planned extension |
+| Gate J | Containers and delivery quiz | unseen build bug, service fault and deployment repair | Projects 01-40 without copied pipeline code | Planned extension |
+| 41 | Boot and Recovery Investigation | boot targets, kernel command line, initramfs concepts and rescue evidence | storage, systemd, logs, snapshots and rollback | Planned extension |
+| 42 | Linux Performance Investigation | CPU, memory, I/O and process evidence with measured hypotheses | metrics, scripts, pipelines and controlled load | Planned extension |
+| 43 | Advanced Network Fault Lab | namespaces or isolated hosts, routes, packet paths and service exposure | DNS, sockets, firewall, logging and diagrams | Planned extension |
+| 44 | Advanced Linux Engineering Capstone | unfamiliar multi-layer failure, independent recovery and technical report | select and integrate skills from Projects 01-43 | Planned extension |
+| Advanced Final | Senior-foundation practical assessment | unseen system, coding task, break/fix, security decision and transfer | independent evidence plus repair of every missed gap | Planned extension |
+
+## Portfolio Lab Roadmap
+
+Each phase produces a retained practical lab under `../projects/`. Portfolio
+evidence must show what Sat actually understood and operated. It must not expose
+credentials, keys, public IP addresses, usernames or identifying host details.
+
+| Phase | Portfolio lab | Evidence to retain |
+| --- | --- | --- |
+| A | Linux baseline and permissions audit | sanitised baseline script, access model, verification and Project 04 audit |
+| B | Automated Linux operations toolkit | process, service, patch and schedule reports with a controlled service fault |
+| C | Network diagnosis and tested recovery | network evidence, capacity monitor, backup manifest and proved restore |
+| D | Secure access and investigation lab | journal investigation, SSH audit, firewall verification and repaired access fault |
+| E | Operated web service and shell toolkit | safe configuration deployment, service checks, reusable Bash library and tests |
+| F | Automated host bootstrap and incident capstone | cloud-init build, container operations, justified Python integration and incident report |
+| G | Multi-host configuration management | inventory, reusable roles, idempotence proof, drift injection and recovery |
+| H | Disposable cloud Linux service | infrastructure code, identity and network decisions, operations evidence and rebuild test |
+| I | Observable service reliability lab | dashboard, actionable alert, runbook, controlled outage and incident review |
+| J | Tested container delivery pipeline | secure image, multi-service deployment, automated checks and rollback evidence |
+| K | Advanced Linux recovery capstone | boot, performance or network investigation with independent diagnosis and recovery |
+
+Every portfolio lab should include the operational problem, architecture and
+scope, starting-state discovery, code, predicted effects, privilege boundaries,
+verification, a controlled fault, recovery, security considerations,
+limitations and lessons learned. Screenshots and terminal output must be narrow,
+sanitised and supported by Sat's explanation.
+
+Phases G-K are planned extensions. Their exact tools and scenarios should be
+reviewed at the end of each preceding phase against Sat's evidence, interests
+and target roles. The core Projects 01-24 remain the first major milestone.
 
 ## Spiral Repetition Rule
 

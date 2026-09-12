@@ -61,6 +61,11 @@
   and PowerShell. Include HCL construction, provider configuration, variables,
   outputs, plan interpretation, state, imports, drift, refactoring, modules,
   security and troubleshooting after the relevant Azure service is understood.
+- For each Terraform build step, explicitly state the Azure component being
+  built, where it sits in the architecture, why it is needed, the required HCL
+  inputs and the expected verification evidence. Start with full guidance, then
+  use partial scaffolds and finally requirements-only prompts as demonstrated
+  fluency increases.
 - Is happy to complete a very large number of labs to reach mastery. Favour
   purposeful repetitions with changed scenarios, reduced hints and clear
   evidence over artificial speed or repeating identical recipes. Lab count is
@@ -101,6 +106,11 @@
   permissions, exposure, secrets, limitations and safe cleanup as applicable.
 - Wants enterprise-style Azure labs to begin with a clear business-needs section
   explaining the operational problem and why the proposed design is suitable.
+- Wants every numbered Azure project to use a different simulated company and
+  business context. Write the brief like a genuine client engagement and treat
+  the engineering process as real, while retaining one clear portfolio
+  disclosure that the organisation and data are simulated. Do not repeatedly
+  label resources, requirements or evidence as fictional or as a lab.
 - Wants the identity learning path to include realistic joiner, mover and leaver
   lifecycle work using Microsoft Entra users, groups, licences and Azure access.
 - Wants an enterprise-style Microsoft Entra environment that connects clearly to
