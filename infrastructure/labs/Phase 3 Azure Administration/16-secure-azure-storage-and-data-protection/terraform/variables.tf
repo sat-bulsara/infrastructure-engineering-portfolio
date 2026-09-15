@@ -11,3 +11,5 @@ variable "private_endpoint_subnet_prefixes" {
   type        = list(string)
   default     = ["10.70.1.0/24"]
 }
+
+

@@ -97,7 +97,7 @@ Progression labels are `R1 Guided`, `R2 Variation`, `R3 Independent`,
 | ML14-05 | Project 23 | R5 | Reuse subnet and NSG reasoning in an end-to-end connectivity ticket | Network Watcher | 40 min |
 | ML15-01 | Before Project 16 | R2 | Compare a storage service endpoint with a private endpoint | Portal, CLI | 35 min |
 | ML15-02 | One week after Project 15 | R3 | Create bidirectional peering from requirements without a recipe | Terraform | 40 min |
-| ML15-03 | One week after Project 15 | R4 | Diagnose one-sided peering | CLI, PowerShell | 25 min |
+| ML15-03 | After Project 17 | R4 | Quickly identify and restore one-sided peering | CLI, PowerShell | 10-15 min |
 | ML15-04 | Project 16 private access | R4 | Repair public DNS resolution caused by a missing VNet link | Private DNS, CLI | 30 min |
 | ML15-05 | Project 25 | R5 | Transfer private DNS and peering into a hub-and-spoke design | Terraform | 45 min |
 

@@ -29,6 +29,9 @@
   checkpoints immediately rather than waiting until the end of the lab.
 - At the start of a lab and during each step, show a brief listed objective so the
   intended outcome is clear. Keep this beside the numbered progress indicator.
+- During Project 17, use a compact tracker showing only the active stage and the
+  stage immediately after it. Do not repeat the complete 24-stage checklist in
+  every response.
 - Wants short AZ-104-style scenario questions at the end of each lab, tied
   directly to actions completed in that lab. Reuse selected questions later with
   changed wording for spaced retrieval rather than testing unrelated trivia.
@@ -39,6 +42,10 @@
   fluency across short changed mini-labs in later projects.
 - Repetition should use changed scenarios and progressively fewer hints instead
   of repeating the same instructions or whole large projects.
+- Keep mini-labs lightweight and focused on repetitions, familiarity and recall.
+  A mini-lab may include a quick controlled fault and retest, but it does not
+  require the full troubleshooting narrative, evidence set or documentation
+  expected from a numbered portfolio project.
 - Reusing a small component from the previous build inside the next real project
   is especially effective. Continue interleaving familiar setup tasks such as
   resource groups, naming, tags, context checks and cleanup so recall develops
@@ -66,6 +73,14 @@
   inputs and the expected verification evidence. Start with full guidance, then
   use partial scaffolds and finally requirements-only prompts as demonstrated
   fluency increases.
+- When showing Terraform syntax during an active exercise, use unrelated example
+  resource names and values rather than the learner's required solution. State
+  the real requirements separately so Sat must adapt the pattern instead of
+  copying the completed answer.
+- When Sat asks for easy-to-copy Terraform fields, provide field names,
+  requirements or an unrelated example scaffold, not the completed project
+  answer. Reveal the full project block only after an attempt and an explicit
+  request for the solution.
 - Is happy to complete a very large number of labs to reach mastery. Favour
   purposeful repetitions with changed scenarios, reduced hints and clear
   evidence over artificial speed or repeating identical recipes. Lab count is

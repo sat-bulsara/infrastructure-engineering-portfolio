@@ -1,5 +1,21 @@
 # Linux Infrastructure Curriculum
 
+## Lab sizing and complexity ladder
+
+Early learning uses short terminal micro-labs before wider projects. Each new
+concept moves through this sequence:
+
+1. Explain one piece of syntax and what Bash does with it.
+2. Demonstrate one minimal example.
+3. Run and inspect one learner example.
+4. Change one element without copying the original command.
+5. Combine it with one previously understood concept.
+6. Use the combination in a small script or operational scenario.
+
+A wider lab should contain several small checkpoints, not one large block of
+commands. Difficulty increases only from demonstrated understanding. Successful
+copying records guided exposure, not mastery.
+
 | Phase | Real-world outcome | Required knowledge and skills | Evidence | Status |
 | --- | --- | --- | --- | --- |
 | A: Shell and filesystem foundations | Identify the lab, navigate it, process text and audit access | terminal, shell, paths, files, streams, pipelines, users, groups, permissions and Bash basics | Projects 01-04 plus Quiz Gate A | Current |

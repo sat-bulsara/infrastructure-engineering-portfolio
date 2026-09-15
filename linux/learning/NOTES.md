@@ -16,6 +16,12 @@
 - Give exactly one learner question or terminal action at a time. Keep the pace
   fluid by reviewing success briefly and moving straight to the next action,
   rather than bundling commands or adding unnecessary confirmation loops.
+- Keep early labs deliberately small. Teach one command or Bash construct,
+  demonstrate its parts, let Sat run one tiny example, then use a small changed
+  variation. Combine concepts only after the individual parts make sense.
+- Grow complexity in visible layers: one command, two-command combination,
+  short pipeline, tiny script, safe operational scenario, then independent
+  variation. Do not begin with a large script for Sat to copy.
 - Present assessment questions one at a time. Begin new concepts with concise
   multiple-choice options, then reduce the choices and increase complexity only
   after Sat demonstrates comfort and accurate reasoning. Never bundle quiz

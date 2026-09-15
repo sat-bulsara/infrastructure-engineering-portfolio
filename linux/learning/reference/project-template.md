@@ -21,9 +21,17 @@ What Linux administration or reliability problem will this project address?
 
 ## Learning map
 
-| Project step | Learn first | Safe practice | Evidence |
-| --- | --- | --- | --- |
-| | | | |
+Build each new skill from the smallest useful unit. Do not combine steps until
+the previous unit has been explained and practised.
+
+| Micro-lab | One new concept | Minimal demonstration | Learner variation | Verification |
+| --- | --- | --- | --- | --- |
+| 1 | | | | |
+| 2 | | | | |
+| 3 | | | | |
+
+After the micro-labs, combine only the demonstrated concepts into the project
+script and scenario.
 
 ## Implementation
 

@@ -2,16 +2,14 @@
 
 ## Current focus
 
-Project 01 is closed as a completed guided lab. Its portfolio script, retained
-output, controlled storage test and rollback were verified. The exit check was
-completed with corrections, so independent mastery is not yet claimed. Project
-02 has not started.
+Project 02, micro-lab 1: understand the current working directory and path
+components before creating the disposable filesystem workbench. Project 01 is
+closed as a completed guided lab.
 
 ## Next action
 
-Wait for Sat's explicit confirmation before starting Project 02. Project 01's
-README and retained evidence are complete. Revisit its weak points later as
-spaced practice on the same Ubuntu VM.
+Retrieve the meaning of `pwd`, predict its output in the Ubuntu SSH session and
+then verify the current working directory without changing it.
 
 ## Review queue
 
@@ -61,3 +59,5 @@ spaced practice on the same Ubuntu VM.
 | 2026-09-12 | Project 02, return home | Confirmed the guided `cd ~` action with `next` | Self-reported; exact `pwd` output not supplied | Create the disposable filesystem workbench |
 | 2026-09-12 | Project 01, documentation closeout | Reconciled the README with verified evidence, recorded the guided completion boundary and included the sanitised screenshot; Bash syntax rechecked successfully | Documentation completed with tutor editing; independent mastery not claimed | Wait for explicit confirmation before starting Project 02 |
 | 2026-09-12 | Project 01, exit check | Answered command substitution, pipeline, assignment-debugging and safety items correctly; initially confused OS release discovery with architecture and needed Full correction for the `printf` command before supplying exact correct output | Mixed: four independent answers, two repaired items | Complete changed-scenario rechecks for the two repaired skills, then resume Project 02 |
+| 2026-09-12 | Course lab sizing | Requested smaller beginner labs that build from individual concepts into wider understanding; curriculum, project template and Project 02 were restructured around micro-labs and a six-level complexity ladder | Course design change; no Linux skill assessed | Continue the current small Bash variable drill; do not start Project 02 without explicit confirmation |
+| 2026-09-13 | Project 02 start | Explicitly approved the transition into the Filesystem Operations Workbench | Project start recorded; no filesystem skill assessed yet | Retrieve and verify the current working directory |

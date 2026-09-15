@@ -8,7 +8,15 @@ verify every operation and recover from controlled mistakes.
 
 ## Status
 
-Build starting. No independent filesystem fluency is claimed yet.
+Not started. Sat must explicitly confirm the project transition before its
+first command. No independent filesystem fluency is claimed yet.
+
+## Learning shape
+
+Project 02 will begin with tiny filesystem drills. Each drill introduces one
+concept, runs one minimal terminal example and checks one changed variation.
+Paths and file actions will be combined into a script only after their separate
+parts are understood.
 
 ## Lab files
 
@@ -16,4 +24,3 @@ Build starting. No independent filesystem fluency is claimed yet.
 - [Bash scripts](scripts/)
 - [Sanitised output](data/)
 - [Screenshots](screenshots/)
-

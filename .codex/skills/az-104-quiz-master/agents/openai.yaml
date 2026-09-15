@@ -1,0 +1,4 @@
+interface:
+  display_name: "AZ-104 Quiz Master"
+  short_description: "Adaptive exam drills and readiness tracking"
+  default_prompt: "Use $az-104-quiz-master to continue my adaptive AZ-104 exam practice."

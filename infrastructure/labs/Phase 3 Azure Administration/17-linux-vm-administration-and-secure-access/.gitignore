@@ -1,0 +1,15 @@
+# Local Terraform working data and plans
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local values can contain machine-specific or sensitive data
+terraform.tfvars
+*.auto.tfvars
+
+# Project SSH keys must remain outside the repository
+*.pem
+*.key
