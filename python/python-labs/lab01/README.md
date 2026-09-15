@@ -51,15 +51,7 @@ The script performs the following:
 
 The script was executed against a reachable public IP address (`1.1.1.1`) to establish a baseline.
 
-### Evidence
 
-📸 *Successful baseline run*
-
-![Baseline Success](screenshots/Screenshot%202026-02-08%20at%2017.40.29.png)
-
-📸 *Generated JSON output*
-
-![Baseline JSON](screenshots/Screenshot%202026-02-08%20at%2017.45.22.jpeg)
 
 ---
 
@@ -69,29 +61,6 @@ The script was executed against a reachable public IP address (`1.1.1.1`) to est
 
 The target was intentionally changed to a non-responsive documentation IP (`203.0.113.1`) to simulate network failure.
 
-### Evidence
-
-📸 *Controlled failure run*
-
-![Failure Run](screenshots/Screenshot%202026-02-08%20at%2018.29.14.png)
-
-📸 *JSON output showing failure state*
-
-![Failure JSON](screenshots/Screenshot%202026-02-08%20at%2018.37.47.png)
-
----
-
-## 🔍 Additional Debug Output
-
-📸 *Terminal output during execution*
-
-![Terminal Output](screenshots/Screenshot%202026-02-08%20at%2018.44.01.png)
-
-📸 *Summary statistics printed to terminal*
-
-![Summary Output](screenshots/Screenshot%202026-02-08%20at%2018.45.19.png)
-
----
 
 ## 🧠 What I Misunderstood at First
 
