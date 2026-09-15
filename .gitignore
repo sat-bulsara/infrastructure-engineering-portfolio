@@ -1,1 +1,7 @@
 .DS_Store
+
+# Terraform generated local files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
