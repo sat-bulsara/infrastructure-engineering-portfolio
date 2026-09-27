@@ -32,6 +32,10 @@
 - During Project 17, use a compact tracker showing only the active stage and the
   stage immediately after it. Do not repeat the complete 24-stage checklist in
   every response.
+- During active Azure teaching sessions, keep progress observations in the
+  conversation and batch-update course notes and learning records only when Sat
+  explicitly ends the session. Reading files and explicitly requested edits to
+  the active project code remain allowed during the session.
 - Wants short AZ-104-style scenario questions at the end of each lab, tied
   directly to actions completed in that lab. Reuse selected questions later with
   changed wording for spaced retrieval rather than testing unrelated trivia.

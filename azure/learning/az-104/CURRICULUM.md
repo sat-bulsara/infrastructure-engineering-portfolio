@@ -15,6 +15,30 @@ The detailed checklist is in the [progressive Azure roadmap](../../assets/azure-
 | I: Microsoft consolidation | Official paths and Applied Skills | Connect formal Microsoft material to practical experience and expose gaps | Module checks, Applied Skills and targeted repair drills | Pending |
 | J: Certification readiness | Review | Use AZ-104 as an optional confidence and coverage checkpoint | Objective mapping, weak-area repairs and timed practice | Future |
 
+## Microsoft Applied Skills Checkpoints
+
+Applied Skills are practical consolidation points, not substitutes for the
+projects. Complete the relevant project work first, attempt the interactive
+assessment without a click-by-click guide, then use any weak areas to create a
+small repair lab.
+
+| Complete after | Applied Skill | Why it sits here |
+| --- | --- | --- |
+| Project 16 | [Secure storage for Azure Files and Azure Blob Storage](https://learn.microsoft.com/en-us/credentials/applied-skills/secure-storage-azure-files-azure-blob-storage/) | Project 16 supplies the storage security, identity, networking and recovery practice. |
+| Project 18 | [Get started with Azure management tasks](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-azure-management-tasks/) | Projects 11-18 establish the subscription, network, storage and VM administration skills assessed. |
+| Project 25 | [Configure secure access to your workloads using Azure networking](https://learn.microsoft.com/en-us/credentials/applied-skills/configure-secure-workloads-use-azure-virtual-networking/) | Projects 14, 15, 23 and 25 build progressively deeper secure-networking experience. |
+| Project 27 | [Deploy and configure Azure Monitor](https://learn.microsoft.com/en-us/credentials/applied-skills/deploy-and-configure-azure-monitor/) | Project 27 covers Log Analytics, telemetry, alerts, VM monitoring and network monitoring. |
+| Project 28 | [Secure Azure services and workloads with Microsoft Defender for Cloud regulatory compliance controls](https://learn.microsoft.com/en-us/credentials/applied-skills/secure-azure-services-and-workloads-with-microsoft-defender-for-cloud-regulatory-compliance-controls/) | Project 28 provides the Defender for Cloud and compliance-remediation foundation. |
+| Project 33 | [Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-identities-and-access-using-microsoft-entra/) | Project 12 introduces Entra and RBAC; Project 33 adds the identity, authentication and governance depth needed for a confident attempt. |
+| Project 34 | [Get started with cloud security and monitoring tasks](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-cloud-security-and-monitoring-tasks/) | By this point Defender for Cloud, Azure Firewall, Azure Monitor and Key Vault have all been practised. |
+| Project 36 | [Implement security through a pipeline using Azure DevOps](https://learn.microsoft.com/en-us/credentials/applied-skills/implement-security-through-pipeline-using-devops/) | Attempt only after ordinary CI/CD, pipeline identity, permissions and protected resources are understood. |
+| Phase 4 Hybrid Infrastructure, before its identity capstone | [Administer Active Directory Domain Services](https://learn.microsoft.com/en-us/credentials/applied-skills/administer-active-directory-domain-services/) | The hybrid phase supplies Windows Server, DNS, PowerShell, domain controllers, AD objects, Group Policy and AD security practice. |
+
+Azure Arc-enabled Servers remains a hands-on hybrid learning path rather than a
+scheduled Applied Skills assessment. Complete it in Phase 4 after independently
+onboarding and operating a non-Azure server, and confirm the current Microsoft
+credential catalogue before treating any future Arc assessment as available.
+
 ## Project Learning Pattern
 
 Every substantial project is security-first. Before deployment, identify the

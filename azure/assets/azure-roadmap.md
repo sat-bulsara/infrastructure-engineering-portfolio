@@ -465,6 +465,7 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Diagnose control-plane versus data-plane access, network and DNS failures.
 - Reproduce the secure baseline with Terraform or Bicep.
 - **Mastery gate:** Restore changed or deleted data and justify protection and access choices.
+- **Applied Skills checkpoint:** Attempt [Secure storage for Azure Files and Azure Blob Storage](https://learn.microsoft.com/en-us/credentials/applied-skills/secure-storage-azure-files-azure-blob-storage/) after an independent storage variation. Use any assessment gaps to define a short repair lab.
 
 ### Project 17: Linux VM Administration and Secure Access
 
@@ -503,6 +504,7 @@ Do not copy its example regions, permissions, identifiers or cleanup commands bl
 - Recreate the baseline with Bicep or Terraform.
 - Diagnose extension, size, quota and region problems.
 - **Mastery gate:** Choose and justify an availability design from recovery and cost requirements.
+- **Applied Skills checkpoint:** Attempt [Get started with Azure management tasks](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-azure-management-tasks/) as the first interactive Microsoft assessment after Projects 11-18.
 
 ## Projects 19 to 22: Infrastructure as code and application platforms
 
@@ -629,6 +631,7 @@ non-technical stakeholders can understand.
 - Diagnose asymmetric routing, route propagation and blocked egress.
 - Build the topology with Terraform or Bicep modules and destroy expensive resources promptly.
 - **Mastery gate:** Produce and validate a changed design from a traffic-flow matrix.
+- **Applied Skills checkpoint:** Attempt [Configure secure access to your workloads using Azure networking](https://learn.microsoft.com/en-us/credentials/applied-skills/configure-secure-workloads-use-azure-virtual-networking/) after a changed networking mini-lab completed with minimal help.
 
 ### Project 26: Hybrid Connectivity, VPN and DNS
 
@@ -659,6 +662,7 @@ non-technical stakeholders can understand.
 - Use Azure Resource Graph to create a cross-resource inventory and export a public-safe operational report.
 - Build a small Python inventory or health-report tool from Azure SDK data or sanitised Azure CLI JSON.
 - **Mastery gate:** Investigate an unfamiliar alert and present an evidence-based timeline.
+- **Applied Skills checkpoint:** Attempt [Deploy and configure Azure Monitor](https://learn.microsoft.com/en-us/credentials/applied-skills/deploy-and-configure-azure-monitor/) after independently configuring and testing one new alert path.
 
 ### Project 28: Defender for Cloud and Security Posture
 
@@ -675,6 +679,7 @@ non-technical stakeholders can understand.
 - Compare Foundational CSPM capabilities with paid Defender plans and disable trial features that are not being retained.
 - Query security recommendations or assessments with Azure CLI, PowerShell or Resource Graph where supported.
 - **Mastery gate:** Triage an unfamiliar set of recommendations and produce an evidence-based remediation plan.
+- **Applied Skills checkpoint:** Attempt [Secure Azure services and workloads with Microsoft Defender for Cloud regulatory compliance controls](https://learn.microsoft.com/en-us/credentials/applied-skills/secure-azure-services-and-workloads-with-microsoft-defender-for-cloud-regulatory-compliance-controls/) after independently remediating and retesting a changed recommendation.
 
 ### Project 29: Microsoft Sentinel and Security Investigation
 
@@ -785,6 +790,7 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
   stakeholder explanation and clearly label anything modelled rather than
   deployed because of licensing.
 - **Mastery gate:** Process a changed JML scenario and prove obsolete access is removed.
+- **Applied Skills checkpoint:** Attempt [Get started with identities and access using Microsoft Entra](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-identities-and-access-using-microsoft-entra/) before beginning dedicated SC-300 preparation.
 
 ### Project 34: Key Vault, Managed Identity and Secrets
 
@@ -797,6 +803,7 @@ Work from requirements, not a click-by-click guide. Submit a design, implementat
 - Diagnose identity, role, network and object-version failures.
 - Scan the project for committed secrets before publication.
 - **Mastery gate:** Replace an insecure secret flow and explain every trust boundary.
+- **Applied Skills checkpoint:** Attempt [Get started with cloud security and monitoring tasks](https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-cloud-security-and-monitoring-tasks/) now that Defender for Cloud, Azure Firewall, Azure Monitor and Key Vault have all been practised.
 
 ### Project 35: Enterprise Terraform Structure and State
 
@@ -852,6 +859,7 @@ stored cloud secrets and promoted through an auditable delivery process.
   as the sole approval or security gate.
 - **Mastery gate:** Deliver a changed Terraform environment through a reviewed,
   secretless and independently verified pipeline.
+- **Applied Skills checkpoint:** Rebuild the same security principles in a small Azure Pipelines exercise, then attempt [Implement security through a pipeline using Azure DevOps](https://learn.microsoft.com/en-us/credentials/applied-skills/implement-security-through-pipeline-using-devops/). Do not treat GitHub Actions experience alone as proof of Azure Pipelines fluency.
 
 ### Project 37: GitHub Advanced Security and Software Supply Chain
 
